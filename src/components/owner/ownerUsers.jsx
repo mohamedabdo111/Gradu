@@ -19,7 +19,7 @@ const OwnerUsers = () => {
         </div>
       </div>
 
-      <div>
+      <div className=" my-9">
         <Tableitems> </Tableitems>
       </div>
     </div>
