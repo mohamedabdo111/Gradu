@@ -1,13 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: "Roboto", sans-serif !important;
+  /* min-height: 120vh !important; 
+   */
+  background-color: #eee;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.banner-text {
+  color: #9dc3d6;
+  font-weight: 300;
 }
+
+.para-about {
+  max-width: 350px;
+}
+
+.read-about {
+  font-weight: 400;
+}
+.head-dash {
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.para-dash {
+  color: #797979;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.request {
+  background-color: #5b6ad0;
+  color: white;
+}
+
+.color-dash {
+  position: absolute;
+  width: 3%;
+  height: 3px;
+}
+
+.imgland {
+  width: 100%;
+  height: 238px;
+}
+
+.links {
+  color: #007aff !important;
+  font-weight: 600;
+}
+
+.imagecardflat {
+  height: 282px;
+}
+
+.imgreg {
+  width: 75px !important;
+  height: 75px !important;
+}
+
+/* .users {
+  font-weight: 600 !important;
+} */
+
+/* .dashb {
+  max-width: 30px !important;
+  height: 50px !important;
+  background-color: red !important;
+} */
