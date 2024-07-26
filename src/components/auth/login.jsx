@@ -12,14 +12,14 @@ const Login = () => {
           <input
             type="email"
             placeholder="Email Address"
-            className="border-b-2 p-2 w-80 focus:outline-none focus:border-black"
+            className="border-b-2 p-2 w-[80%] focus:outline-none focus:border-black"
           ></input>
         </div>
         <div className=" w-full my-7">
           <input
             type="password"
             placeholder="Password"
-            className="border-b-2 p-2 w-80 focus:outline-none focus:border-black"
+            className="border-b-2 p-2 w-[80%] focus:outline-none focus:border-black"
           ></input>
         </div>
         <div>
@@ -27,7 +27,7 @@ const Login = () => {
             Forget Password
           </a>
         </div>
-        <button className="bg-links w-80 p-2 rounded-md text-white my-7">
+        <button className="bg-links w-[80%] p-2 rounded-md text-white my-7">
           Login
         </button>
         <p className=" font-medium my-7">

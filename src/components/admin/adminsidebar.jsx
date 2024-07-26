@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
-const Ownersidebar = () => {
+const Adminsidebars = () => {
   const pathName = useLocation();
   return (
     <div
@@ -12,43 +12,43 @@ const Ownersidebar = () => {
 
       <div className=" flex items-center gap-3 mt-9">
         <div className="w-8 h-8 rounded-md bg-dash"></div>
-        <Link to={"/owner/dashboard"}>
+        <Link to={"/admin/dashboard"}>
           <h1>Dashboard</h1>
         </Link>
       </div>
       <div className=" flex items-center gap-3 mt-6">
         <div className="w-8 h-8 rounded-md bg-notifi font-medium"></div>
-        <Link to={"/owner/notification"}>
+        <Link to={"/admin/notification"}>
           <h1>Notification</h1>
         </Link>
       </div>
 
       <div className=" flex items-center gap-3 mt-6">
-        <div className="w-8 h-8 rounded-md bg-flat font-medium"></div>
-        <Link to={"/owner/flat"}>
-          <h1>Flat</h1>
-        </Link>
-      </div>
-      <div className=" flex items-center gap-3 mt-6">
         <div className="w-8 h-8 rounded-md bg-pass font-medium"></div>
-        <Link to={"/owner/update-password"}>
+        <Link to={"/admin/update-password"}>
           <h1>Password</h1>
         </Link>
       </div>
       <div className=" flex items-center gap-3 mt-6">
         <div className="w-8 h-8 rounded-md bg-user font-medium"></div>
-        <Link to={"/owner/user"}>
+        <Link to={"/admin/users"}>
           <h1>User</h1>
         </Link>
       </div>
       <div className=" flex items-center gap-3 mt-6">
         <div className="w-8 h-8 rounded-md bg-editprof font-medium"></div>
-        <Link to={"/owner/update-profile"}>
+        <Link to={"/admin/update-profile"}>
           <h1>Edit Profile</h1>
+        </Link>
+      </div>
+      <div className=" flex items-center gap-3 mt-6">
+        <div className="w-8 h-8 rounded-md bg-zinc-700 font-medium"></div>
+        <Link to={"/admin/pending"}>
+          <h1>Pending</h1>
         </Link>
       </div>
     </div>
   );
 };
 
-export default Ownersidebar;
+export default Adminsidebars;

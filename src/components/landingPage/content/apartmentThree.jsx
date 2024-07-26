@@ -12,10 +12,10 @@ const ApartmentThree = () => {
             properties architectural masterpieces.
           </p>
           <a
-            className=" flex gap-3 w-52 cursor-pointer bg-white px-8 py-3 items-center"
+            className=" flex gap-3 w-52 cursor-pointer bg-white px-8 py-3 items-center h-fit text-sm sm:text-normal"
             href="/about-us"
           >
-            <span className="font-thin read-about">VIEW MORE</span>
+            <span className="font-thin read-about ">VIEW MORE</span>
             <span>
               <svg
                 class="w-6 h-6 text-gray-800 dark:text-white"

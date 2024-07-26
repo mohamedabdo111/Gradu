@@ -12,6 +12,14 @@ import OwnerPasswordPage from "./pages/owner/ownerPasswordPage";
 import OwnerUsersPage from "./pages/owner/ownerUsersPage";
 import OwnerEditProfilePage from "./pages/owner/ownerEditProfilePage";
 import OwnerAllFlatsPage from "./pages/owner/ownerAllFlatsPage";
+import OwnerDashBoardPage from "./pages/owner/adminDashBoardPage";
+import OwnerNotificationPage from "./pages/owner/adminNotificationPage";
+import AdminDashBoardPagead from "./pages/admin/admindashPage";
+import AdminNotifiPage from "./pages/admin/adminNotifPage";
+import AdminPasswordPage from "./pages/admin/adminEditPasswordPage";
+import AdminUsersPage from "./pages/admin/adminUsersPage";
+import AdminEditProf from "./pages/admin/adminEditProfPage";
+import AdminPenddingPage from "./pages/admin/adminPenddingpage";
 
 const App = () => {
   return (
@@ -23,32 +31,58 @@ const App = () => {
           <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/register" element={<Register></Register>}></Route>
           <Route
-            path="/admin/dashboard"
-            element={<AdminDashBoardPage></AdminDashBoardPage>}
+            path="/owner/dashboard"
+            element={<OwnerDashBoardPage></OwnerDashBoardPage>}
           ></Route>
           <Route
-            path="/admin/notification"
-            element={<AdminNotificationPage></AdminNotificationPage>}
+            path="/owner/notification"
+            element={<OwnerNotificationPage></OwnerNotificationPage>}
           ></Route>
           <Route
-            path="/admin/flat"
+            path="/owner/flat"
             element={<OwnerFlatPage></OwnerFlatPage>}
           ></Route>
           <Route
-            path="/admin/update-password"
+            path="/owner/update-password"
             element={<OwnerPasswordPage></OwnerPasswordPage>}
           ></Route>
           <Route
-            path="/admin/user"
+            path="/owner/user"
             element={<OwnerUsersPage></OwnerUsersPage>}
           ></Route>
           <Route
-            path="/admin/update-profile"
+            path="/owner/update-profile"
             element={<OwnerEditProfilePage></OwnerEditProfilePage>}
           ></Route>
           <Route
-            path="/admin/all-flats"
+            path="/owner/all-flats"
             element={<OwnerAllFlatsPage></OwnerAllFlatsPage>}
+          ></Route>
+
+          {/* admin */}
+          <Route
+            path="/admin/dashboard"
+            element={<AdminDashBoardPagead></AdminDashBoardPagead>}
+          ></Route>
+          <Route
+            path="/admin/notification"
+            element={<AdminNotifiPage></AdminNotifiPage>}
+          ></Route>
+          <Route
+            path="/admin/update-password"
+            element={<AdminPasswordPage></AdminPasswordPage>}
+          ></Route>
+          <Route
+            path="/admin/users"
+            element={<AdminUsersPage></AdminUsersPage>}
+          ></Route>
+          <Route
+            path="/admin/update-profile"
+            element={<AdminEditProf></AdminEditProf>}
+          ></Route>
+          <Route
+            path="/admin/pending"
+            element={<AdminPenddingPage></AdminPenddingPage>}
           ></Route>
         </Routes>
       </BrowserRouter>

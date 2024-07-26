@@ -19,34 +19,34 @@ const Register = () => {
           <input
             type="text"
             placeholder="User Name"
-            className="border-b-2 p-2 w-80 focus:outline-none focus:border-black"
+            className="border-b-2 p-2 w-[80%] focus:outline-none focus:border-black"
           ></input>
           <div className=" w-full my-7">
             <input
               type="email"
               placeholder="Email"
-              className="border-b-2 p-2 w-80 focus:outline-none focus:border-black"
+              className="border-b-2 p-2 w-[80%] focus:outline-none focus:border-black"
             ></input>
           </div>
           <div className=" w-full my-7">
             <input
               type="number"
               placeholder="Phone number"
-              className="border-b-2 p-2 w-80 focus:outline-none focus:border-black"
+              className="border-b-2 p-2 w-[80%] focus:outline-none focus:border-black"
             ></input>
           </div>
           <div className=" w-full my-7">
             <input
               type="password"
               placeholder="Password"
-              className="border-b-2 p-2 w-80 focus:outline-none focus:border-black"
+              className="border-b-2 p-2 w-[80%] focus:outline-none focus:border-black"
             ></input>
           </div>
           <div className=" w-full my-7">
             <input
               type="password"
               placeholder="Confirm password"
-              className="border-b-2 p-2 w-80 focus:outline-none focus:border-black"
+              className="border-b-2 p-2 w-[80%] focus:outline-none focus:border-black"
             ></input>
           </div>
 
@@ -71,19 +71,15 @@ const Register = () => {
             <select
               name="HeadlineAct"
               id="HeadlineAct"
-              className="mt-1.5 w-80 p-2 border rounded-lg border-gray-300 text-gray-700 sm:text-sm"
+              className="mt-1.5 w-[80%] p-2 border rounded-lg border-gray-300 text-gray-700 sm:text-sm"
             >
               <option value="">User Type</option>
               <option value="owner">Owner</option>
               <option value="user"> User</option>
             </select>
           </div>
-          <div>
-            <a href="/forget-password" className="links font-semibold my-6">
-              Forget Password
-            </a>
-          </div>
-          <button className="bg-links w-80 p-2 rounded-md text-white my-7">
+
+          <button className="bg-links w-[80%] p-2 rounded-md text-white my-7">
             Register
           </button>
           <p className=" font-medium my-7">

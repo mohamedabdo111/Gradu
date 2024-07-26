@@ -14,7 +14,7 @@ const OwnerFlat = () => {
             Save
           </button>
           <Link
-            to={"/admin/all-flats"}
+            to={"/owner/all-flats"}
             className="p-3 text-white bg-flat rounded-full w-[150px] flex gap-3 justify-center items-center"
           >
             <span>

@@ -46,10 +46,19 @@ const Header = () => {
                 <li>
                   <a
                     className="text-gray-500 transition hover:text-gray-500/75"
+                    href="/owner/dashboard"
+                  >
+                    {" "}
+                    Owner dash{" "}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="text-gray-500 transition hover:text-gray-500/75"
                     href="/admin/dashboard"
                   >
                     {" "}
-                    admin dash{" "}
+                    Admin dash{" "}
                   </a>
                 </li>
               </ul>
