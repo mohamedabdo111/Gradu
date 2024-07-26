@@ -20,6 +20,8 @@ import AdminPasswordPage from "./pages/admin/adminEditPasswordPage";
 import AdminUsersPage from "./pages/admin/adminUsersPage";
 import AdminEditProf from "./pages/admin/adminEditProfPage";
 import AdminPenddingPage from "./pages/admin/adminPenddingpage";
+import UserAllFlatsPage from "./pages/user/userAllFlatsPage";
+import UserApartmentDetails from "./pages/user/userApartmentDetails";
 
 const App = () => {
   return (
@@ -83,6 +85,16 @@ const App = () => {
           <Route
             path="/admin/pending"
             element={<AdminPenddingPage></AdminPenddingPage>}
+          ></Route>
+
+          {/* users */}
+          <Route
+            path="/user/view-flats"
+            element={<UserAllFlatsPage></UserAllFlatsPage>}
+          ></Route>
+          <Route
+            path="/user/apartment-details/:id"
+            element={<UserApartmentDetails></UserApartmentDetails>}
           ></Route>
         </Routes>
       </BrowserRouter>

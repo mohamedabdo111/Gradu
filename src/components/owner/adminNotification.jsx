@@ -8,13 +8,13 @@ const AdminNotification = () => {
         <div className="color-dash  bg-notifi"></div>
       </div>
 
-      <div className="w-[80%] md:w-[65%] mx-auto mt-8">
+      <div className="w-[95%] md:w-[65%] mx-auto mt-8">
         <div className=" bg-red-600 text-white p-3 rounded-lg">
           <p className=" font-semibold ">We released some new features</p>
           <p className=" font-thin">Check them out!</p>
         </div>
       </div>
-      <div className="w-[80%] md:w-[65%] mx-auto rounded-lg overflow-hidden ">
+      <div className="w-[95%] md:w-[65%] mx-auto rounded-lg overflow-hidden ">
         <div className="flex items-center gap-3 bg-white p-3  border-b-2">
           <img
             src={img}

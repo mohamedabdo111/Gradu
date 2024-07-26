@@ -1,5 +1,6 @@
 import React from "react";
 import CardsLanding from "./cardslanding";
+import { Link } from "react-router-dom";
 
 const ApartmentThree = () => {
   return (
@@ -11,9 +12,9 @@ const ApartmentThree = () => {
             Discover our exclusive selection of the finest one of a kind luxury
             properties architectural masterpieces.
           </p>
-          <a
+          <Link
             className=" flex gap-3 w-52 cursor-pointer bg-white px-8 py-3 items-center h-fit text-sm sm:text-normal"
-            href="/about-us"
+            to={"/user/view-flats"}
           >
             <span className="font-thin read-about ">VIEW MORE</span>
             <span>
@@ -35,7 +36,7 @@ const ApartmentThree = () => {
                 />
               </svg>
             </span>
-          </a>
+          </Link>
         </div>
 
         <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
