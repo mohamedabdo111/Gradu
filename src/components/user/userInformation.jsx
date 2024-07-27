@@ -1,18 +1,23 @@
 import React from "react";
 import img from "../../images/80cbe4fdb55341eafcc8f6768afe17f5.jpeg";
-const UserInformation = () => {
+const UserInformation = ({ userInfo }) => {
+  console.log(userInfo);
   return (
     <>
       <div className=" flex flex-row-reverse justify-between">
         <div className="text-end">
-          <h1 className=" fam text-xl font-bold">شقه سوبر لوكس</h1>
-          <p className="mt-2 text-lg text-gray-600 fam">200 EGP</p>
-          <p className="mt-2 text-lg text-gray-600 fam ">دمياط</p>
+          <h1 className=" fam text-xl font-bold">{userInfo.apartmentName}</h1>
+          <p className="mt-2 text-lg text-gray-600 fam">
+            {userInfo.apartmentPrice} EGP
+          </p>
           <p className="mt-2 text-lg text-gray-600 fam ">
-            عصير قصب سوبيا جامد اووي
+            {userInfo.apartmentCity}
+          </p>
+          <p className="mt-2 text-lg text-gray-600 fam ">
+            {userInfo.apartmentAddress}
           </p>
           <p className="mt-2 text-lg text-gray-600 fam">
-            شقه 4 اوض وصاله وفيها حمام بحري ودشين
+            {userInfo.apartmentDescription}
           </p>
         </div>
         <div className=" w-fit h-fit relative cursor-pointer">
@@ -27,11 +32,11 @@ const UserInformation = () => {
           >
             <path d="m12.75 20.66 6.184-7.098c2.677-2.884 2.559-6.506.754-8.705-.898-1.095-2.206-1.816-3.72-1.855-1.293-.034-2.652.43-3.963 1.442-1.315-1.012-2.678-1.476-3.973-1.442-1.515.04-2.825.76-3.724 1.855-1.806 2.201-1.915 5.823.772 8.706l6.183 7.097c.19.216.46.34.743.34a.985.985 0 0 0 .743-.34Z" />
           </svg>
-          <p className="heart-Number">5</p>
+          <p className="heart-Number">{userInfo.apartmentLikes}</p>
         </div>
       </div>
       <div className=" flex flex-row-reverse justify-between ">
-        <p className="mt-2 text-lg text-gray-500">(4/0)</p>
+        <p className="mt-2 text-lg text-gray-500 fam">{`(${userInfo.totalCount} / ${userInfo.studnetExistingIn})`}</p>
         <button className=" btn bg-sec">Enroll</button>
       </div>
 
@@ -43,8 +48,10 @@ const UserInformation = () => {
           className=" w-[100px] h-[100px] rounded-full border-4 border-sec "
         ></img>
         <div className="text-end">
-          <h1 className="fam text-xl font-bold">اسم مالك الشقه</h1>
-          <p className="mt-2 text-lg text-gray-600 fam ">(عدد الشقق) شقه</p>
+          <h1 className="fam text-xl font-bold">{userInfo.ownerName}</h1>
+          <p className="mt-2 text-lg text-gray-600 fam ">
+            (عدد الشقق) {userInfo.ownerApartmentCount}
+          </p>
         </div>
       </div>
     </>

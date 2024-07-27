@@ -1,12 +1,11 @@
 import React from "react";
-import img from "../../images/Screenshot 2024-03-21 215400.jpg";
 import { Link } from "react-router-dom";
-const UserCard = () => {
+const UserCard = ({ item }) => {
   return (
     <div className="bg-white col-span-12 sm:col-span-6 lg:col-span-4 rounded-xl border overflow-hidden m-3">
-      <Link to="/user/apartment-details/:id">
+      <Link to={`/user/apartment-details/${item.apartmentID}`}>
         <img
-          src={img}
+          src={item.imageURL}
           alt="image"
           className=" w-full object-cover rounded-xl h-[175px] shadow-xl"
         ></img>
@@ -32,7 +31,7 @@ const UserCard = () => {
             />
           </svg>
 
-          <h1 className=" font-sans font-medium fam">شقه سوبر لوكس</h1>
+          <h1 className=" font-sans font-medium fam">{item.name}</h1>
         </div>
         <div className=" flex gap-1 justify-start flex-row-reverse p-2 ">
           <svg
@@ -54,7 +53,7 @@ const UserCard = () => {
           </svg>
 
           <h1 className=" font-sans font-semibold text-lg text-user ">
-            200 EGP
+            {item.salary} EGP
           </h1>
         </div>
         <div className=" flex gap-1 justify-start flex-row-reverse p-2 ">
@@ -76,7 +75,7 @@ const UserCard = () => {
             />
           </svg>
 
-          <h1 className=" text-sm text-gray-500  fam"> دمياط</h1>
+          <h1 className=" text-sm text-gray-500  fam"> {item.city}</h1>
         </div>
         <div className=" flex gap-1 justify-start flex-row-reverse p-2">
           <svg
@@ -105,7 +104,7 @@ const UserCard = () => {
           </svg>
 
           <h1 className=" font-sans text-sm text-gray-500 fam ">
-            عصير قصب سوبيا جامد اووي (Address)
+            {item.address}
           </h1>
         </div>
         <div className=" flex gap-1 justify-start flex-row-reverse p-2 ">
@@ -126,7 +125,7 @@ const UserCard = () => {
             />
           </svg>
 
-          <h1 className=" font-sans text-sm text-gray-500 fam">(4/0)</h1>
+          <h1 className=" font-sans text-sm text-gray-500 fam">{`(${item.totalCount} / ${item.apartmentExistCount})`}</h1>
         </div>
       </div>
     </div>

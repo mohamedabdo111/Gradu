@@ -10,12 +10,17 @@ const GetAllApartmentHook = () => {
   useEffect(() => {
     const get = async () => {
       setLoading(true);
-      await dispatch(GetAllApartmentAction());
+      await dispatch(GetAllApartmentAction(1, 3));
       setLoading(false);
     };
     get();
   }, []);
 
+  const onpres = async (e) => {
+    setLoading(true);
+    await dispatch(GetAllApartmentAction(e, 3));
+    setLoading(false);
+  };
   const res = useSelector((item) => item.AllApartment.getApatments);
 
   useEffect(() => {
@@ -26,7 +31,7 @@ const GetAllApartmentHook = () => {
     }
   }, [loading]);
 
-  return [loading, data];
+  return [loading, data, onpres];
 };
 
 export default GetAllApartmentHook;

@@ -22,7 +22,7 @@ const ApartmentThree = () => {
           </p>
           <Link
             className=" flex gap-3 w-44 sm:w-52 cursor-pointer bg-white px-8 py-3 items-center h-fit text-sm sm:text-normal"
-            to={"/user/view-flats"}
+            to={"/user/view-apartments"}
           >
             <span className="font-thin read-about ">VIEW MORE</span>
             <span>
@@ -48,14 +48,16 @@ const ApartmentThree = () => {
         </div>
 
         <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {threeApart && threeApart != "" ? (
-            threeApart.map((item, index) => {
-              return <CardsLanding item={item} key={index}></CardsLanding>;
-            })
+          {!loading ? (
+            threeApart && threeApart != "" ? (
+              threeApart.map((item, index) => {
+                return <CardsLanding item={item} key={index}></CardsLanding>;
+              })
+            ) : (
+              <h1 className="for-not-found">There Are No Apartments</h1>
+            )
           ) : (
-            <h1 className=" font-bold text-2xl  md:text-4xl text-center col-span-6 max-w-[1100px]">
-              There Are No Apartments
-            </h1>
+            <h1 className="for-not-found">Loading...</h1>
           )}
         </div>
       </div>

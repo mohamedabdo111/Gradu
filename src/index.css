@@ -13,6 +13,9 @@
 .fam {
   font-family: "Cairo", sans-serif;
 }
+.for-not-found {
+  @apply font-bold text-2xl  md:text-4xl text-center col-span-12 my-10;
+}
 body {
   margin: 0 !important;
   padding: 0 !important;
@@ -23,7 +26,7 @@ body {
 }
 
 .imageDetails img {
-  width: calc(96% / 3);
+  width: calc(96% / 4);
 }
 
 .heart-Number {

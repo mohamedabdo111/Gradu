@@ -1,6 +1,10 @@
 import { combineReducers } from "redux";
-import { GetAllApartmentReducer } from "./getAllApartment";
+import {
+  GetAllApartmentReducer,
+  GetApartmentDetailsReducer,
+} from "./getAllApartment";
 
 export default combineReducers({
   AllApartment: GetAllApartmentReducer,
+  ApartmentDetails: GetApartmentDetailsReducer,
 });

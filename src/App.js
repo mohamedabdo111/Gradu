@@ -26,94 +26,98 @@ import UserApartmentDetailsPage from "./pages/user/userApartmentDetailsPage";
 import ForgetPassword from "./components/auth/forgetPassword";
 import EmailForget from "./components/auth/emailuser";
 import CodeNumber from "./components/auth/codeNumber";
+import { SkeletonTheme } from "react-loading-skeleton";
 
 const App = () => {
   return (
     <>
       <Header></Header>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LangingPage></LangingPage>}></Route>
-          <Route path="/login" element={<Login></Login>}></Route>
-          <Route path="/register" element={<Register></Register>}></Route>
-          <Route
-            path="/forget-password"
-            element={<ForgetPassword></ForgetPassword>}
-          ></Route>
-          <Route
-            path="/email-address"
-            element={<EmailForget></EmailForget>}
-          ></Route>
-          <Route
-            path="/code-confirm"
-            element={<CodeNumber></CodeNumber>}
-          ></Route>
-          <Route
-            path="/owner/dashboard"
-            element={<OwnerDashBoardPage></OwnerDashBoardPage>}
-          ></Route>
-          <Route
-            path="/owner/notification"
-            element={<OwnerNotificationPage></OwnerNotificationPage>}
-          ></Route>
-          <Route
-            path="/owner/flat"
-            element={<OwnerFlatPage></OwnerFlatPage>}
-          ></Route>
-          <Route
-            path="/owner/update-password"
-            element={<OwnerPasswordPage></OwnerPasswordPage>}
-          ></Route>
-          <Route
-            path="/owner/user"
-            element={<OwnerUsersPage></OwnerUsersPage>}
-          ></Route>
-          <Route
-            path="/owner/update-profile"
-            element={<OwnerEditProfilePage></OwnerEditProfilePage>}
-          ></Route>
-          <Route
-            path="/owner/all-flats"
-            element={<OwnerAllFlatsPage></OwnerAllFlatsPage>}
-          ></Route>
+      <SkeletonTheme baseColor="#313131" highlightColor="#525252">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LangingPage></LangingPage>}></Route>
+            <Route path="/login" element={<Login></Login>}></Route>
+            <Route path="/register" element={<Register></Register>}></Route>
+            <Route
+              path="/forget-password"
+              element={<ForgetPassword></ForgetPassword>}
+            ></Route>
+            <Route
+              path="/email-address"
+              element={<EmailForget></EmailForget>}
+            ></Route>
+            <Route
+              path="/code-confirm"
+              element={<CodeNumber></CodeNumber>}
+            ></Route>
+            <Route
+              path="/owner/dashboard"
+              element={<OwnerDashBoardPage></OwnerDashBoardPage>}
+            ></Route>
+            <Route
+              path="/owner/notification"
+              element={<OwnerNotificationPage></OwnerNotificationPage>}
+            ></Route>
+            <Route
+              path="/owner/flat"
+              element={<OwnerFlatPage></OwnerFlatPage>}
+            ></Route>
+            <Route
+              path="/owner/update-password"
+              element={<OwnerPasswordPage></OwnerPasswordPage>}
+            ></Route>
+            <Route
+              path="/owner/user"
+              element={<OwnerUsersPage></OwnerUsersPage>}
+            ></Route>
+            <Route
+              path="/owner/update-profile"
+              element={<OwnerEditProfilePage></OwnerEditProfilePage>}
+            ></Route>
+            <Route
+              path="/owner/all-flats"
+              element={<OwnerAllFlatsPage></OwnerAllFlatsPage>}
+            ></Route>
 
-          {/* admin */}
-          <Route
-            path="/admin/dashboard"
-            element={<AdminDashBoardPagead></AdminDashBoardPagead>}
-          ></Route>
-          <Route
-            path="/admin/notification"
-            element={<AdminNotifiPage></AdminNotifiPage>}
-          ></Route>
-          <Route
-            path="/admin/update-password"
-            element={<AdminPasswordPage></AdminPasswordPage>}
-          ></Route>
-          <Route
-            path="/admin/users"
-            element={<AdminUsersPage></AdminUsersPage>}
-          ></Route>
-          <Route
-            path="/admin/update-profile"
-            element={<AdminEditProf></AdminEditProf>}
-          ></Route>
-          <Route
-            path="/admin/pending"
-            element={<AdminPenddingPage></AdminPenddingPage>}
-          ></Route>
+            {/* admin */}
+            <Route
+              path="/admin/dashboard"
+              element={<AdminDashBoardPagead></AdminDashBoardPagead>}
+            ></Route>
+            <Route
+              path="/admin/notification"
+              element={<AdminNotifiPage></AdminNotifiPage>}
+            ></Route>
+            <Route
+              path="/admin/update-password"
+              element={<AdminPasswordPage></AdminPasswordPage>}
+            ></Route>
+            <Route
+              path="/admin/users"
+              element={<AdminUsersPage></AdminUsersPage>}
+            ></Route>
+            <Route
+              path="/admin/update-profile"
+              element={<AdminEditProf></AdminEditProf>}
+            ></Route>
+            <Route
+              path="/admin/pending"
+              element={<AdminPenddingPage></AdminPenddingPage>}
+            ></Route>
 
-          {/* users */}
-          <Route
-            path="/user/view-flats"
-            element={<UserAllFlatsPage></UserAllFlatsPage>}
-          ></Route>
-          <Route
-            path="/user/apartment-details/:id"
-            element={<UserApartmentDetailsPage></UserApartmentDetailsPage>}
-          ></Route>
-        </Routes>
-      </BrowserRouter>
+            {/* users */}
+            <Route
+              path="/user/view-apartments"
+              element={<UserAllFlatsPage></UserAllFlatsPage>}
+            ></Route>
+            <Route
+              path="/user/apartment-details/:id"
+              element={<UserApartmentDetailsPage></UserApartmentDetailsPage>}
+            ></Route>
+          </Routes>
+        </BrowserRouter>
+      </SkeletonTheme>
+
       <Footer></Footer>
     </>
   );
