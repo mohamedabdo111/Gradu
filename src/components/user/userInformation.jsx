@@ -1,7 +1,6 @@
 import React from "react";
-import img from "../../images/80cbe4fdb55341eafcc8f6768afe17f5.jpeg";
+import img from "../../images/user login.png";
 const UserInformation = ({ userInfo }) => {
-  console.log(userInfo);
   return (
     <>
       <div className=" flex flex-row-reverse justify-between">
@@ -43,7 +42,7 @@ const UserInformation = ({ userInfo }) => {
       {/* user Information */}
       <div className="flex flex-row-reverse items-center gap-3 p-4 border-t-2 border-b-2 my-8 border-gray-500 ">
         <img
-          src={img}
+          src={userInfo.ownerImageUrl === null ? img : userInfo.ownerImageUrl}
           alt="userImage"
           className=" w-[100px] h-[100px] rounded-full border-4 border-sec "
         ></img>

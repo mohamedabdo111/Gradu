@@ -1,16 +1,27 @@
 import React, { useState } from "react";
 import Logo from "../../images/Group11.png";
+import img from "../../images/user login.png";
 const Header = () => {
   const [ispress, setIsPress] = useState(false);
+  const [ispressuser, setIsPressuser] = useState(false);
 
   const activate = () => {
     setIsPress(!ispress);
-    console.log(ispress);
   };
 
   const notActive = () => {
     setIsPress(false);
   };
+
+  const activeuser = () => {
+    setIsPressuser(!ispressuser);
+  };
+
+  const Logout = () => {
+    localStorage.removeItem("UserInf");
+    window.location.reload();
+  };
+  const IsUserHere = JSON.parse(localStorage.getItem("UserInf"));
   return (
     <header className="bg-white shadow-md  ">
       <div className="container ">
@@ -94,23 +105,103 @@ const Header = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="sm:flex sm:gap-4">
-              <a
-                className="rounded-md bg-sec px-5 py-2.5 text-sm font-medium text-white shadow"
-                href="/login"
-              >
-                Login
-              </a>
-
-              <div className="hidden sm:flex">
+            {IsUserHere === null ? (
+              <div className="sm:flex sm:gap-4">
                 <a
-                  className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-sec"
-                  href="/register"
+                  className="rounded-md bg-sec px-5 py-2.5 text-sm font-medium text-white shadow"
+                  href="/login"
                 >
-                  Register
+                  Login
                 </a>
+
+                <div className="hidden sm:flex">
+                  <a
+                    className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-sec"
+                    href="/register"
+                  >
+                    Register
+                  </a>
+                </div>
               </div>
-            </div>
+            ) : (
+              // <div className=" flex gap-2 items-center ">
+              //   <img
+              //     src={img}
+              //     alt="user"
+              //     width={30}
+              //     height={30}
+              //     className=" cursor-pointer"
+              //   ></img>
+              //   <h4 className=" cursor-pointer font-semibold">
+              //     {IsUserHere.userName}
+              //   </h4>
+              // </div>
+              <div className="relative">
+                <div
+                  className="inline-flex items-center overflow-hidden rounded-md border bg-white"
+                  onClick={activeuser}
+                >
+                  <img
+                    src={img}
+                    alt="user"
+                    width={30}
+                    height={30}
+                    className=" cursor-pointer p-1"
+                  ></img>
+
+                  <button className="h-full p-2 text-gray-600 hover:bg-gray-50 hover:text-gray-700">
+                    <span className="sr-only">Menu</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </button>
+                </div>
+
+                {ispressuser ? (
+                  <div
+                    className="absolute end-0 z-10 mt-2 w-56 rounded-md border border-gray-100 bg-white shadow-lg"
+                    role="menu"
+                  >
+                    <div className="p-2">
+                      {IsUserHere.role === "Owner" ? (
+                        <a
+                          href="/owner/dashboard"
+                          className="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                          role="menuitem"
+                        >
+                          Owner Dashboard
+                        </a>
+                      ) : null}
+                      {IsUserHere.role === "Admin" ? (
+                        <a
+                          href="/admin/dashboard"
+                          className="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                          role="menuitem"
+                        >
+                          Admin Dashboard
+                        </a>
+                      ) : null}
+
+                      <p
+                        className="block rounded-lg px-4 py-2 text-sm text-red-800 hover:bg-gray-50 hover:text-gray-700 cursor-pointer"
+                        onClick={Logout}
+                      >
+                        Logout
+                      </p>
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            )}
 
             <div className="block md:hidden">
               <button

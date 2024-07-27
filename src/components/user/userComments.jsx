@@ -1,73 +1,37 @@
 import React from "react";
-import img from "../../images/80cbe4fdb55341eafcc8f6768afe17f5.jpeg";
-const UserComments = () => {
+import img from "../../images/user login.png";
+// import PaginationCode from "../fixed/Pagination";
+const UserComments = ({ comment, onpress }) => {
   return (
     <div className=" bg-white p-4 rounded-lg">
       <h1 className=" text-xl font-semibold p-3">Comment</h1>
-      <div className="border border-gray-400 shadow-lg p-3 rounded-lg my-4">
-        <div className=" flex gap-3 items-center ">
-          <img
-            src={img}
-            alt="imguser"
-            className=" w-[50px] h-[50px] rounded-full"
-          ></img>
-          <h1 className=" font-semibold">Mohamed</h1>
-        </div>
+      {comment && comment.date
+        ? comment.date.map((item, index) => {
+            return (
+              <div
+                className="border border-gray-400 shadow-lg p-3 rounded-lg my-4"
+                key={index}
+              >
+                <div className=" flex gap-3 items-center ">
+                  <img
+                    src={
+                      item.currentUserImage === null
+                        ? img
+                        : item.currentUserImage
+                    }
+                    alt="imguser"
+                    className=" w-[50px] h-[50px] rounded-full"
+                  ></img>
+                  <h1 className=" font-semibold">{item.userCommentName}</h1>
+                </div>
 
-        <div className=" text-end my-4 fam">
-          الشقه دي ميه ميه والراجل ده ميه ميه , الشقه دي ميه ميه والراجل ده ميه
-          ميه ,الشقه دي ميه ميه والراجل ده ميه ميه ,الشقه دي ميه ميه والراجل ده
-          ميه ميه
-        </div>
-      </div>
-      <div className="border border-gray-400 shadow-lg p-3 rounded-lg my-4">
-        <div className=" flex gap-3 items-center ">
-          <img
-            src={img}
-            alt="imguser"
-            className=" w-[50px] h-[50px] rounded-full"
-          ></img>
-          <h1 className=" font-semibold">Mohamed</h1>
-        </div>
+                <div className=" text-end my-4 fam">{item.commentValue}</div>
+              </div>
+            );
+          })
+        : null}
 
-        <div className=" text-end my-4 fam">
-          الشقه دي ميه ميه والراجل ده ميه ميه , الشقه دي ميه ميه والراجل ده ميه
-          ميه ,الشقه دي ميه ميه والراجل ده ميه ميه ,الشقه دي ميه ميه والراجل ده
-          ميه ميه
-        </div>
-      </div>
-      <div className="border border-gray-400 shadow-lg p-3 rounded-lg my-4">
-        <div className=" flex gap-3 items-center ">
-          <img
-            src={img}
-            alt="imguser"
-            className=" w-[50px] h-[50px] rounded-full"
-          ></img>
-          <h1 className=" font-semibold">Mohamed</h1>
-        </div>
-
-        <div className=" text-end my-4 fam">
-          الشقه دي ميه ميه والراجل ده ميه ميه , الشقه دي ميه ميه والراجل ده ميه
-          ميه ,الشقه دي ميه ميه والراجل ده ميه ميه ,الشقه دي ميه ميه والراجل ده
-          ميه ميه
-        </div>
-      </div>
-      <div className="border border-gray-400 shadow-lg p-3 rounded-lg my-4">
-        <div className=" flex gap-3 items-center ">
-          <img
-            src={img}
-            alt="imguser"
-            className=" w-[50px] h-[50px] rounded-full"
-          ></img>
-          <h1 className=" font-semibold">Mohamed</h1>
-        </div>
-
-        <div className=" text-end my-4 fam">
-          الشقه دي ميه ميه والراجل ده ميه ميه , الشقه دي ميه ميه والراجل ده ميه
-          ميه ,الشقه دي ميه ميه والراجل ده ميه ميه ,الشقه دي ميه ميه والراجل ده
-          ميه ميه
-        </div>
-      </div>
+      {/* <PaginationCode pageCount={3} onpress={onpress}></PaginationCode> */}
       <div className="border border-gray-400 shadow-lg p-3 rounded-lg my-4">
         <div className=" flex gap-3 items-center justify-center flex-wrap ">
           <img

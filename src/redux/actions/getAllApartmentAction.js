@@ -18,17 +18,18 @@ export const GetAllApartmentAction = (number, size) => async (dispatch) => {
   }
 };
 
-export const GetApartmentDetailsAction = (id) => async (dispatch) => {
-  try {
-    const res = await UseGetDate(`Apartment/GetApartmentDetails?Id=${id}`);
-    dispatch({
-      type: Get_Apartment_Details,
-      data: res.data,
-    });
-  } catch (error) {
-    dispatch({
-      type: Get_Apartment_Details,
-      data: error.response,
-    });
-  }
-};
+export const GetApartmentDetailsAction =
+  (id, num, size) => async (dispatch) => {
+    try {
+      const res = await UseGetDate(`Apartment/GetApartmentDetails?Id=${id}`);
+      dispatch({
+        type: Get_Apartment_Details,
+        data: res.data,
+      });
+    } catch (error) {
+      dispatch({
+        type: Get_Apartment_Details,
+        data: error.response,
+      });
+    }
+  };

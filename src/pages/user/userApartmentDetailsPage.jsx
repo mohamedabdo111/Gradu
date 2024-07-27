@@ -11,11 +11,11 @@ const UserApartmentDetailsPage = () => {
   return (
     <div className=" container">
       {!loading ? (
-        data && data != "" ? (
+        data && data !== "" ? (
           <>
             <UserImages apartmentInfo={data}></UserImages>
             <UserInformation userInfo={data}></UserInformation>
-            <UserComments></UserComments>
+            <UserComments comment={data.apartmentComments}></UserComments>
           </>
         ) : (
           <h1 className="for-not-found ">Details Not Founded</h1>

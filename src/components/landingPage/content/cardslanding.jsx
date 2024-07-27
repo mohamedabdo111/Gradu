@@ -8,7 +8,7 @@ const CardsLanding = ({ item }) => {
         <img
           src={item.imageURL || <Skeleton></Skeleton>}
           alt="imagecard"
-          className="imgland p-2"
+          className="imgland p-2  object-cover"
         ></img>
         <h1 className="m-4 font-bold font-mono">{item.name || <Skeleton />}</h1>
         <h4 className="text-sec m-4">{item.salary}</h4>

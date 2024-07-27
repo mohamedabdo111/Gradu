@@ -17,6 +17,12 @@ const GetApartmentDetailsHook = (id) => {
     get();
   }, []);
 
+  //   const onPress = async (e) => {
+  //     setLoading(true);
+  //     await dispatch(GetApartmentDetailsAction(id, e, 2));
+  //     setLoading(false);
+  //   };
+
   const res = useSelector((item) => item.ApartmentDetails.getDetails);
 
   useEffect(() => {
