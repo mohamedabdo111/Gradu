@@ -3,6 +3,7 @@ import img from "../../images/image.png";
 import logo from "../../images/Group11.png";
 import male from "../../images/male.png";
 import female from "../../images/female.png";
+import { Link } from "react-router-dom";
 const Register = () => {
   return (
     <div className=" grid grid-cols-12 gap-4 bg-login">
@@ -52,18 +53,30 @@ const Register = () => {
 
           <div className=" flex justify-center  gap-12 my-6">
             <div className=" flex flex-row-reverse items-center gap-2">
-              <input type="radio" for="male"></input>
+              <input
+                type="radio"
+                for="male"
+                id="male"
+                name="gender"
+                value="gender"
+              ></input>
               <img
                 src={male}
                 alt="male"
                 className="imgreg"
                 id="male"
                 name="one"
+                for="male"
               ></img>
             </div>
             <div className=" flex flex-row-reverse items-center gap-2">
-              <input type="radio" name="one"></input>
-              <img src={female} alt="male"></img>
+              <input
+                type="radio"
+                id="female"
+                name="gender"
+                value="gender"
+              ></input>
+              <img src={female} alt="female"></img>
             </div>
           </div>
 
@@ -84,9 +97,9 @@ const Register = () => {
           </button>
           <p className=" font-medium my-7">
             Already have an account?{" "}
-            <a href="/login" className="text-links">
+            <Link to="/login" className="text-links">
               Login ...{" "}
-            </a>
+            </Link>
           </p>
         </div>
       </div>

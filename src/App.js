@@ -23,6 +23,9 @@ import AdminPenddingPage from "./pages/admin/adminPenddingpage";
 import UserAllFlatsPage from "./pages/user/userAllFlatsPage";
 import UserApartmentDetails from "./pages/user/userApartmentDetailsPage";
 import UserApartmentDetailsPage from "./pages/user/userApartmentDetailsPage";
+import ForgetPassword from "./components/auth/forgetPassword";
+import EmailForget from "./components/auth/emailuser";
+import CodeNumber from "./components/auth/codeNumber";
 
 const App = () => {
   return (
@@ -33,6 +36,18 @@ const App = () => {
           <Route path="/" element={<LangingPage></LangingPage>}></Route>
           <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/register" element={<Register></Register>}></Route>
+          <Route
+            path="/forget-password"
+            element={<ForgetPassword></ForgetPassword>}
+          ></Route>
+          <Route
+            path="/email-address"
+            element={<EmailForget></EmailForget>}
+          ></Route>
+          <Route
+            path="/code-confirm"
+            element={<CodeNumber></CodeNumber>}
+          ></Route>
           <Route
             path="/owner/dashboard"
             element={<OwnerDashBoardPage></OwnerDashBoardPage>}

@@ -68,7 +68,7 @@ const Header = () => {
                 </li>
 
                 <div
-                  className="w-fit h-fit absolute right-0 p-2"
+                  className="w-fit h-fit absolute right-0 p-2 block md:hidden"
                   onClick={notActive}
                 >
                   <svg

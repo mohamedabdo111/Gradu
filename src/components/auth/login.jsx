@@ -1,6 +1,7 @@
 import React from "react";
 import img from "../../images/VECTOR.jpg";
 import logo from "../../images/Group11.png";
+import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <div className=" grid grid-cols-12 gap-4 bg-login">
@@ -23,18 +24,18 @@ const Login = () => {
           ></input>
         </div>
         <div>
-          <a href="/forget-password" className="links font-semibold my-6">
+          <Link to="/email-address" className="links font-semibold my-6">
             Forget Password
-          </a>
+          </Link>
         </div>
         <button className="bg-links w-[80%] p-2 rounded-md text-white my-7">
           Login
         </button>
         <p className=" font-medium my-7">
           Don't have an account?{" "}
-          <a href="/register" className="text-links">
+          <Link to="/register" className="text-links">
             Regester ...{" "}
-          </a>
+          </Link>
         </p>
       </div>
       <div className=" hidden md:block md:col-span-5  lg:col-span-6 m-auto">

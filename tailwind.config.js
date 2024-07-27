@@ -15,6 +15,7 @@ module.exports = {
         user: "#b5e369",
         editprof: "#fe983a",
         back: "#eeeeee",
+        btns: "#279574",
       },
     },
   },
