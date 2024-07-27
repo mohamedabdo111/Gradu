@@ -21,7 +21,8 @@ import AdminUsersPage from "./pages/admin/adminUsersPage";
 import AdminEditProf from "./pages/admin/adminEditProfPage";
 import AdminPenddingPage from "./pages/admin/adminPenddingpage";
 import UserAllFlatsPage from "./pages/user/userAllFlatsPage";
-import UserApartmentDetails from "./pages/user/userApartmentDetails";
+import UserApartmentDetails from "./pages/user/userApartmentDetailsPage";
+import UserApartmentDetailsPage from "./pages/user/userApartmentDetailsPage";
 
 const App = () => {
   return (
@@ -94,7 +95,7 @@ const App = () => {
           ></Route>
           <Route
             path="/user/apartment-details/:id"
-            element={<UserApartmentDetails></UserApartmentDetails>}
+            element={<UserApartmentDetailsPage></UserApartmentDetailsPage>}
           ></Route>
         </Routes>
       </BrowserRouter>

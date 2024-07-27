@@ -1,5 +1,6 @@
 import React from "react";
 import img from "../../../images/Rectangle 9.png";
+import { Link } from "react-router-dom";
 const About = () => {
   return (
     <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 grid grid-cols-12 my-10 gap-5 bg-gray-100 p-4">
@@ -16,14 +17,14 @@ const About = () => {
           team as it’s the most professional in the business.
         </p>
 
-        <a
+        <Link
           className=" flex gap-3 w-52 cursor-pointer bg-white px-8 py-5"
           href="/about-us"
         >
           <span className=" font-thin read-about">READ MORE</span>
           <span>
             <svg
-              class="w-6 h-6 text-gray-800 dark:text-white"
+              className="w-[24px] h-[24px] text-gray-800"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -33,14 +34,14 @@ const About = () => {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.5"
                 d="M19 12H5m14 0-4 4m4-4-4-4"
               />
             </svg>
           </span>
-        </a>
+        </Link>
       </div>
     </div>
   );

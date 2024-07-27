@@ -42,8 +42,13 @@ const OwnerEditProf = () => {
             alt="img"
             className="imgreg rounded-full outline outline-white outline-4 m-auto"
           ></img>
-          <button className=" p-3 bg-dash text-black rounded-2xl mt-5">
+          <button className=" p-3 bg-dash text-black rounded-2xl mt-5  relative ">
             Change Profile Pic
+            <input
+              type="file"
+              accept="image/*"
+              className=" absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"
+            />
           </button>
           {/* make input file foucse in image not button */}
         </div>

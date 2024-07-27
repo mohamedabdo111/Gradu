@@ -19,7 +19,7 @@ const ApartmentThree = () => {
             <span className="font-thin read-about ">VIEW MORE</span>
             <span>
               <svg
-                class="w-6 h-6 text-gray-800 dark:text-white"
+                className="w-[24px] h-[24px] text-gray-800 "
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -29,9 +29,9 @@ const ApartmentThree = () => {
               >
                 <path
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.5"
                   d="M19 12H5m14 0-4 4m4-4-4-4"
                 />
               </svg>
