@@ -91,7 +91,9 @@ const RegisterHook = () => {
       return notify("Email Or Name is Already Registered", "warn");
     } else if (res && res.data && res.data.statusCode === 200) {
       notify("Confirm this email before login", "warn");
-      window.location.href = "/login";
+      setTimeout(() => {
+        window.location.href = "/login";
+      }, 3000);
     } else if (
       res &&
       res.data &&

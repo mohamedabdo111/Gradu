@@ -1,5 +1,11 @@
-import { UsePostDateWithImage } from "../../hooks/usePostData";
-import { Login_type, Register_type } from "../types/types";
+import { UsePostDate, UsePostDateWithImage } from "../../hooks/usePostData";
+import {
+  code_pass,
+  forget_pass,
+  Login_type,
+  NewPassword,
+  Register_type,
+} from "../types/types";
 
 export const AuthAction = (formdata) => async (dispatch) => {
   try {
@@ -26,6 +32,48 @@ export const RegisterAction = (formdata) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: Register_type,
+      data: error.response,
+    });
+  }
+};
+export const ForgetPasswordAction = (data) => async (dispatch) => {
+  try {
+    const res = await UsePostDate("Authentication/SendResetPassword", data);
+    dispatch({
+      type: forget_pass,
+      data: res,
+    });
+  } catch (error) {
+    dispatch({
+      type: forget_pass,
+      data: error.response,
+    });
+  }
+};
+export const CodePasswordAction = (data) => async (dispatch) => {
+  try {
+    const res = await UsePostDate("Authentication/ConfirmResetPassword", data);
+    dispatch({
+      type: code_pass,
+      data: res,
+    });
+  } catch (error) {
+    dispatch({
+      type: code_pass,
+      data: error.response,
+    });
+  }
+};
+export const NewPasswordAction = (data) => async (dispatch) => {
+  try {
+    const res = await UsePostDate("Authentication/ResetPassword", data);
+    dispatch({
+      type: NewPassword,
+      data: res,
+    });
+  } catch (error) {
+    dispatch({
+      type: NewPassword,
       data: error.response,
     });
   }
