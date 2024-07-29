@@ -40,6 +40,7 @@ const LoginHook = () => {
       console.log(res);
       if (res && res.data && res.data.statusCode === 200) {
         localStorage.setItem("UserInf", JSON.stringify(res.data.data));
+        localStorage.setItem("token", res.data.data.token);
         window.location.href = "/";
       }
       if (

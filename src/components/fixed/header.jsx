@@ -22,6 +22,11 @@ const Header = () => {
     window.location.reload();
   };
   const IsUserHere = JSON.parse(localStorage.getItem("UserInf"));
+
+  if (JSON.parse(localStorage.getItem("UserInf")) !== null) {
+    var ImageUser = JSON.parse(localStorage.getItem("UserInf")).userImageUrl;
+  }
+
   return (
     <header className="bg-white shadow-md  ">
       <div className="container ">
@@ -124,29 +129,16 @@ const Header = () => {
                 </div>
               </div>
             ) : (
-              // <div className=" flex gap-2 items-center ">
-              //   <img
-              //     src={img}
-              //     alt="user"
-              //     width={30}
-              //     height={30}
-              //     className=" cursor-pointer"
-              //   ></img>
-              //   <h4 className=" cursor-pointer font-semibold">
-              //     {IsUserHere.userName}
-              //   </h4>
-              // </div>
               <div className="relative">
                 <div
                   className="inline-flex items-center overflow-hidden rounded-md border bg-white"
                   onClick={activeuser}
                 >
                   <img
-                    src={img}
+                    src={ImageUser !== null ? ImageUser : img}
                     alt="user"
-                    width={30}
-                    height={30}
-                    className=" cursor-pointer p-1"
+                    className=" cursor-pointer p-1 rounded-full w-[33px] h-[33px] object-cover"
+                    property="lazy"
                   ></img>
 
                   <button className="h-full p-2 text-gray-600 hover:bg-gray-50 hover:text-gray-700">

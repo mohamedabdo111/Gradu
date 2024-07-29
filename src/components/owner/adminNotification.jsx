@@ -1,6 +1,17 @@
-import React from "react";
-import img from "../../images/5df63bd5005f9c7615753f39306b2760.jpeg";
+import React, { useEffect, useState } from "react";
+import NotificationSection from "./items/notificationSection";
+import { useDispatch, useSelector } from "react-redux";
+import { GetNotificationAction } from "../../redux/actions/ownerAction";
+import GetNotificationHook from "../../hookPages/getNotificationHook";
 const AdminNotification = () => {
+  if (JSON.parse(localStorage.getItem("UserInf")) != null) {
+    var userId = JSON.parse(localStorage.getItem("UserInf")).userId;
+  } else {
+    userId = "";
+  }
+
+  const [loading, data] = GetNotificationHook(userId);
+
   return (
     <div>
       <div>
@@ -11,62 +22,26 @@ const AdminNotification = () => {
       <div className="w-[95%] md:w-[65%] mx-auto mt-8">
         <div className=" bg-red-600 text-white p-3 rounded-lg">
           <p className=" font-semibold ">We released some new features</p>
-          <p className=" font-thin">Check them out!</p>
+          <p className=" ">Check them out!</p>
         </div>
       </div>
       <div className="w-[95%] md:w-[65%] mx-auto rounded-lg overflow-hidden ">
-        <div className="flex items-center gap-3 bg-white p-3  border-b-2">
-          <img
-            src={img}
-            alt="image-user"
-            style={{ width: "50px", height: "50px", borderRadius: "50%" }}
-          ></img>
-          <div>
-            <p>
-              <span className=" font-semibold">Mohamed Zidan</span> react to
-              your post
-            </p>
-          </div>
-        </div>
-        <div className="flex items-center gap-3 bg-white p-3  border-b-2">
-          <img
-            src={img}
-            alt="image-user"
-            style={{ width: "50px", height: "50px", borderRadius: "50%" }}
-          ></img>
-          <div>
-            <p>
-              <span className=" font-semibold">Mohamed Zidan</span> react to
-              your post
-            </p>
-          </div>
-        </div>
-        <div className="flex items-center gap-3 bg-white p-3 border-b-2">
-          <img
-            src={img}
-            alt="image-user"
-            style={{ width: "50px", height: "50px", borderRadius: "50%" }}
-          ></img>
-          <div>
-            <p>
-              <span className=" font-semibold">Mohamed Zidan</span> react to
-              your post
-            </p>
-          </div>
-        </div>
-        <div className="flex items-center gap-3 bg-white p-3  border-b-2">
-          <img
-            src={img}
-            alt="image-user"
-            style={{ width: "50px", height: "50px", borderRadius: "50%" }}
-          ></img>
-          <div>
-            <p>
-              <span className=" font-semibold">Mohamed Zidan</span> react to
-              your post
-            </p>
-          </div>
-        </div>
+        {!loading ? (
+          data && data.length >= 1 ? (
+            data.map((item, index) => {
+              return (
+                <NotificationSection
+                  item={item}
+                  key={index}
+                ></NotificationSection>
+              );
+            })
+          ) : (
+            <h1 className="for-not-found">There are no Notifications</h1>
+          )
+        ) : (
+          <h1 className="for-not-found">Loading ...</h1>
+        )}
       </div>
     </div>
   );

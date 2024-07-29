@@ -18,3 +18,14 @@ export const UsePostDateWithImage = async (url, params) => {
 
   return res;
 };
+export const UsePostDateWithOutImage = async (url, params) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  };
+
+  const res = await baseurl.post(url, params, config);
+
+  return res;
+};

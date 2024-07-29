@@ -1,6 +1,30 @@
-import React from "react";
-import img from "../../images/80cbe4fdb55341eafcc8f6768afe17f5.jpeg";
+import React, { useEffect, useState } from "react";
+import img from "../../images/user login.png";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  GetProfileAction,
+  UpdateProfileAction,
+} from "../../redux/actions/ownerAction";
+import { notify } from "../fixed/notify";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import OwnerGetProfileInfoHook from "../../hookPages/ownerGetProfileInfoHook";
+
 const OwnerEditProf = () => {
+  const [
+    onChangeUserName,
+    onChangeEmail,
+    onChangePhone,
+    onChangeImage,
+    onSubmit,
+    mail,
+    username,
+    phone,
+    imageVal,
+    loading,
+    loadingSubmit,
+  ] = OwnerGetProfileInfoHook();
+
   return (
     <div>
       <div>
@@ -9,21 +33,25 @@ const OwnerEditProf = () => {
       </div>
 
       <div className=" w-[100%] md:w-[90%] mt-9 grid grid-cols-12 m-auto">
-        <div className=" col-span-6">
+        <div className=" col-span-12 sm:col-span-6">
           <div className="mt-6">
             <label className="font-semibold block">UserName</label>
             <input
               id="Username"
               type="text"
               className="p-2  bg-transparent rounded-lg w-full border border-black"
+              value={username}
+              onChange={onChangeUserName}
             />
           </div>
           <div className="mt-6">
             <label className="font-semibold block">Email</label>
             <input
-              id="mail"
+              id="email"
               type="email"
               className="p-2  bg-transparent rounded-lg w-full border border-black"
+              value={mail}
+              onChange={onChangeEmail}
             />
           </div>
           <div className="mt-6">
@@ -32,27 +60,40 @@ const OwnerEditProf = () => {
               id="phone"
               type="phone"
               className="p-2  bg-transparent rounded-lg w-full border border-black"
+              value={phone}
+              onChange={onChangePhone}
             />
+          </div>
+          <div className="p-2  bg-transparent rounded-lg w-full text-center mt-6">
+            <button
+              className="btns border border-editprof text-editprof hover:text-white hover:bg-editprof duration-100"
+              onClick={onSubmit}
+            >
+              Save
+            </button>
           </div>
         </div>
         {/* imageprof */}
-        <div className=" col-span-6 text-center mt-6">
+        <div className="  col-span-12 sm:col-span-6 text-center mt-6 ">
           <img
-            src={img}
+            src={imageVal === null ? img : imageVal}
             alt="img"
-            className="imgreg rounded-full outline outline-white outline-4 m-auto"
+            className="imgreg rounded-full outline outline-white outline-4 m-auto object-cover"
+            property="lazy"
           ></img>
-          <button className=" p-3 bg-dash text-black rounded-2xl mt-5  relative ">
+          <button className=" p-3 bg-dash text-black rounded-2xl mt-5  relative cursor-pointer ">
             Change Profile Pic
             <input
               type="file"
               accept="image/*"
               className=" absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"
+              onChange={onChangeImage}
             />
           </button>
           {/* make input file foucse in image not button */}
         </div>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

@@ -5,3 +5,15 @@ export const UseGetDate = async (url, params) => {
 
   return res;
 };
+
+export const UseGetDataToken = async (url, params) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  };
+
+  const res = baseurl.get(url, config);
+
+  return res;
+};

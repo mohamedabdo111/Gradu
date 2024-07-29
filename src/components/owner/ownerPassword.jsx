@@ -1,6 +1,19 @@
 import React from "react";
+import UpdatePasswordHook from "../../hookPages/updatePassword";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const OwnerPassword = () => {
+  const [
+    password,
+    confirmPassword,
+    onChangeConfirmPassword,
+    onChangePassword,
+    onSubmit,
+    onChangeNewPassword,
+    newpassword,
+  ] = UpdatePasswordHook();
+
   return (
     <div>
       <div>
@@ -12,34 +25,44 @@ const OwnerPassword = () => {
         <div>
           <label className="font-semibold block">Old Password</label>
           <input
-            id="Username"
+            id="oldpass"
             type="password"
             className="p-2  bg-transparent rounded-lg w-full border border-black"
+            value={password}
+            onChange={onChangePassword}
           />
         </div>
         <div className="mt-6">
           <label className="font-semibold block">New Password</label>
           <input
-            id="Username"
+            id="newpass"
             type="password"
             className="p-2  bg-transparent rounded-lg w-full border border-black"
+            value={newpassword}
+            onChange={onChangeNewPassword}
           />
         </div>
         <div className="mt-6">
           <label className="font-semibold block">Confirm New Password</label>
           <input
-            id="Username"
+            id="confirmpass"
             type="password"
             className="p-2  bg-transparent rounded-lg w-full border border-black"
+            value={confirmPassword}
+            onChange={onChangeConfirmPassword}
           />
         </div>
 
         <div className=" text-center">
-          <button className="bg-pass w-[100px] p-3 rounded-md mt-6 text-white ">
+          <button
+            className="bg-pass w-[100px] p-3 rounded-md mt-6 text-white "
+            onClick={onSubmit}
+          >
             Save
           </button>
         </div>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

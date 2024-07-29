@@ -4,9 +4,11 @@ import {
   GetApartmentDetailsReducer,
 } from "./getAllApartment";
 import { AuthReducer } from "./authReducer";
+import { AdminReducer } from "./ownerReducer";
 
 export default combineReducers({
   AllApartment: GetAllApartmentReducer,
   ApartmentDetails: GetApartmentDetailsReducer,
   Auth: AuthReducer,
+  AdminReducer: AdminReducer,
 });
