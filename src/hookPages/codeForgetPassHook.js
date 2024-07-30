@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CodePasswordAction } from "../redux/actions/AuthAction";
 import { notify } from "../components/fixed/notify";
+import { useNavigate } from "react-router-dom";
 
 const CodeForgetPassHook = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [code, setCode] = useState("");
   const [loading, setLoading] = useState(true);
@@ -31,7 +33,7 @@ const CodeForgetPassHook = () => {
         notify("This code is wrong , try again", "warn");
       } else if (res && res.data && res.data.statusCode === 200) {
         notify("Please wait ", "success");
-        window.location.href = "/forget-password";
+        navigate("/forget-password");
       }
     }
   }, [loading]);

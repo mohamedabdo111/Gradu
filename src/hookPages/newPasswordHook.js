@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NewPasswordAction } from "../redux/actions/AuthAction";
 import { notify } from "../components/fixed/notify";
+import { useNavigate } from "react-router-dom";
 
 const NewPassword = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [confirmPasswordpassword, setconfirmPassword] = useState("");
   const [loading, setLoading] = useState(true);
@@ -45,7 +47,7 @@ const NewPassword = () => {
   useEffect(() => {
     if (loading === false) {
       if (res && res.data && res.data.statusCode === 200) {
-        window.location.href = "/login";
+        navigate("/login");
       }
     }
   }, [loading]);

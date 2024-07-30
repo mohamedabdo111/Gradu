@@ -5,7 +5,7 @@ const About = () => {
   return (
     <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 grid grid-cols-12 my-10 gap-5 bg-gray-100 p-4">
       <div className=" hidden sm:block col-span-6 m-auto ">
-        <img src={img}></img>
+        <img src={img} property="lazy"></img>
       </div>
       <div className=" col-span-12 sm:col-span-6">
         <h1 className="banner-text text-5xl font-thin">About</h1>
@@ -18,7 +18,7 @@ const About = () => {
         </p>
 
         <Link
-          className=" flex gap-3 w-52 cursor-pointer bg-white px-8 py-5"
+          className=" flex gap-3 w-52 cursor-pointer bg-white px-8 py-5 hover:text-sec justify-center"
           href="/about-us"
         >
           <span className=" font-thin read-about">READ MORE</span>

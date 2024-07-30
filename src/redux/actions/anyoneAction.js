@@ -33,7 +33,7 @@ export const AddLikeAction = (data) => async (dispatch) => {
 };
 export const EnrollAction = (data) => async (dispatch) => {
   try {
-    const res = await UsePostDateWithOutImage("Apartment/AddReact", data);
+    const res = await UsePostDateWithOutImage("Payment/Payment", data);
 
     dispatch({
       type: Enroll,

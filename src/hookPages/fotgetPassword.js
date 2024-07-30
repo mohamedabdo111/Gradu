@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ForgetPasswordAction } from "../redux/actions/AuthAction";
+import { useNavigate } from "react-router-dom";
 
 const FotgetPassword = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(true);
@@ -25,7 +27,7 @@ const FotgetPassword = () => {
     if (loading === false) {
       if (res && res.data && res.data.statusCode === 200) {
         localStorage.setItem("email", email);
-        window.location.href = "/code-confirm";
+        navigate("/code-confirm");
       }
     }
   }, [loading]);

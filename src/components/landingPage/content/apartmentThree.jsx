@@ -15,19 +15,19 @@ const ApartmentThree = () => {
     <div className=" bg-gray-100">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 mt-9 mb-20 p-5">
         <h1 className="text-primary text-4xl font-bold">Best recommendation</h1>
-        <div className=" flex justify-between my-5 flex-nowrap ">
-          <p className="w-full sm:para-about">
+        <div className=" flex justify-between my-5 flex-wrap ">
+          <p className="w-[75%] sm:para-about mb-3">
             Discover our exclusive selection of the finest one of a kind luxury
             properties architectural masterpieces.
           </p>
           <Link
-            className=" flex gap-3 w-44 sm:w-52 cursor-pointer bg-white px-8 py-3 items-center h-fit text-sm sm:text-normal"
+            className=" flex gap-3 justify-center w-44 sm:w-52 cursor-pointer bg-white px-8 py-3 items-center h-fit text-sm sm:text-normal hover:text-sec "
             to={"/user/view-apartments"}
           >
             <span className="font-thin read-about ">VIEW MORE</span>
             <span>
               <svg
-                className="w-[24px] h-[24px] text-gray-800 "
+                className="w-[24px] h-[24px] text-gray-800"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

@@ -6,10 +6,11 @@ import {
   AddLikeAction,
   EnrollAction,
 } from "../redux/actions/anyoneAction";
+import { useNavigate } from "react-router-dom";
 
 const AddCommentHook = (id) => {
   const [comments, setComment] = useState("");
-
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
@@ -66,26 +67,31 @@ const AddCommentHook = (id) => {
       if (res && res.data && res.data.statusCode === 200) {
         window.location.reload();
       } else if (res && res.status === 401) {
-        window.location.href = "/login";
+        navigate("/login");
       }
 
       if (resLike && resLike.data && resLike.data.statusCode === 200) {
         window.location.reload();
       } else if (resLike && resLike.status === 401) {
-        window.location.href = "/login";
-      }
-      if (Enroll && Enroll.data && Enroll.data.statusCode === 200) {
-        notify("Done", "success");
-      } else if (Enroll && Enroll.status === 401) {
-        window.location.href = "/login";
+        navigate("/login");
       } else if (
-        Enroll &&
-        Enroll.data.message === "Can't React,You Already reacted."
+        resLike &&
+        resLike.data &&
+        resLike.data.message === "Can't React,You Already reacted."
       ) {
-        notify("Already Enrolled", "warn");
+        notify("Already like it", "warn");
       }
+      //   if (Enroll && Enroll.data && Enroll.data.statusCode === 200) {
+      //     notify("Done", "success");
+      //   } else if (Enroll && Enroll.status === 401) {
+      //     window.location.href = "/login";
+      //   }
 
-      console.log(Enroll.data);
+      if (Enroll && Enroll.status === 401) {
+        navigate("/login");
+      } else if (Enroll && Enroll.data && Enroll.data.statusCode === 200) {
+        window.location.href = Enroll.data.data;
+      }
     }
   }, [loading]);
 

@@ -4,7 +4,7 @@ const ContactUs = () => {
   return (
     <div className=" grid grid-cols-12 mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 mt-9 mb-20 gap-6">
       <div className=" col-span-12 sm:col-span-4">
-        <h1>Contact Us</h1>
+        <h1 className="text-2xl font-semibold text-zinc-800">Contact Us</h1>
         <div>
           <div className=" mx-auto text-center my-2">
             <input
@@ -49,7 +49,12 @@ const ContactUs = () => {
         </div>
       </div>
       <div className=" col-span-12 sm:col-span-8  ">
-        <img src={img} alt="ContactUS" className="w-full max-h-96" />
+        <img
+          src={img}
+          alt="ContactUS"
+          className="w-full max-h-96 object-cover"
+          property="lazy"
+        />
       </div>
     </div>
   );
