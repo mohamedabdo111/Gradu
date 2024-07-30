@@ -104,6 +104,10 @@ body {
   background-color: red !important;
 } */
 
+.positi {
+  transform: translate(-50%, -50%) !important;
+}
+
 @media (max-width: 768px) {
   .listNav {
     position: absolute;

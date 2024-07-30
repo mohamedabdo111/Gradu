@@ -32,7 +32,7 @@ const Register = () => {
     <div className=" grid grid-cols-12 gap-4 bg-login">
       {isPress ? (
         loading ? (
-          <div className=" absolute top-[50%] left-[50%]  p-7">
+          <div className=" absolute top-[50%] left-[50%] positi p-7">
             <Loading></Loading>
           </div>
         ) : null

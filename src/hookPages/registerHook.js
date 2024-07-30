@@ -87,52 +87,61 @@ const RegisterHook = () => {
   useEffect(() => {
     if (loading === false) {
       setLoading(true);
-      setIspress(false);
+      setTimeout(() => {
+        setIspress(false);
+      }, 2000);
 
-      if (
-        res &&
-        res.data &&
-        res.data.message === "Email Or Name is Already Registered"
-      ) {
-        return notify("Email Or Name is Already Registered", "warn");
-      } else if (res && res.data && res.data.statusCode === 200) {
-        notify("Confirm this email before login", "warn");
-        setTimeout(() => {
-          window.location.href = "/login";
-        }, 3000);
+      if (res) {
+        if (
+          res &&
+          res.data &&
+          res.data.message === "Email Or Name is Already Registered"
+        ) {
+          return notify("Email Or Name is Already Registered", "warn");
+        } else if (res && res.data && res.data.statusCode === 200) {
+          notify("Confirm this email before login", "warn");
+          setTimeout(() => {
+            window.location.href = "/login";
+          }, 3000);
 
-        return;
-      } else if (
-        res &&
-        res.data &&
-        res.data.message ===
-          "Passwords must have at least one non alphanumeric character. ,Passwords must have at least one lowercase ('a'-'z'). ,Passwords must have at least one uppercase ('A'-'Z'). ,"
-      ) {
-        return notify(
-          "Passwords must have at least one non alphanumeric character. ,Passwords must have at least one lowercase ('a'-'z'). ,Passwords must have at least one uppercase ('A'-'Z'). ,",
-          "warn"
-        );
-      } else if (
-        res &&
-        res.data &&
-        res.data.errors &&
-        res.data.errors.Email &&
-        res.data.errors.Email[0] ===
-          "The Email field is not a valid e-mail address."
-      ) {
-        return notify("The Email field is not a valid e-mail address.", "warn");
-      } else if (
-        res &&
-        res.data &&
-        res.data.message ===
-          `Username '${username}' is invalid, can only contain letters or digits. ,`
-      ) {
-        return notify(
-          ` Username '${username}' is invalid, can only contain letters or digits.`,
-          "warn"
-        );
+          return;
+        } else if (
+          res &&
+          res.data &&
+          res.data.message ===
+            "Passwords must have at least one non alphanumeric character. ,Passwords must have at least one lowercase ('a'-'z'). ,Passwords must have at least one uppercase ('A'-'Z'). ,"
+        ) {
+          return notify(
+            "Passwords must have at least one non alphanumeric character. ,Passwords must have at least one lowercase ('a'-'z'). ,Passwords must have at least one uppercase ('A'-'Z'). ,",
+            "warn"
+          );
+        } else if (
+          res &&
+          res.data &&
+          res.data.errors &&
+          res.data.errors.Email &&
+          res.data.errors.Email[0] ===
+            "The Email field is not a valid e-mail address."
+        ) {
+          return notify(
+            "The Email field is not a valid e-mail address.",
+            "warn"
+          );
+        } else if (
+          res &&
+          res.data &&
+          res.data.message ===
+            `Username '${username}' is invalid, can only contain letters or digits. ,`
+        ) {
+          return notify(
+            ` Username '${username}' is invalid, can only contain letters or digits.`,
+            "warn"
+          );
+        }
       }
     }
+
+    console.log(res);
   }, [loading]);
   return [
     onChangeUserName,
