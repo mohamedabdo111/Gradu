@@ -37,30 +37,7 @@ const AddCommentHook = (id) => {
     setLoading(false);
   };
 
-  const SubmitLike = async () => {
-    setLoading(true);
-    await dispatch(
-      AddLikeAction({
-        userID: userId,
-        apartmentID: id,
-      })
-    );
-    setLoading(false);
-  };
-  const OnEnroll = async () => {
-    setLoading(true);
-    await dispatch(
-      EnrollAction({
-        userID: userId,
-        apartmentID: id,
-      })
-    );
-    setLoading(false);
-  };
-
   const res = useSelector((item) => item.AnyOne.AddComment);
-  const resLike = useSelector((item) => item.AnyOne.addLike);
-  const Enroll = useSelector((item) => item.AnyOne.enroll);
 
   useEffect(() => {
     if (loading === false) {
@@ -69,33 +46,10 @@ const AddCommentHook = (id) => {
       } else if (res && res.status === 401) {
         navigate("/login");
       }
-
-      if (resLike && resLike.data && resLike.data.statusCode === 200) {
-        window.location.reload();
-      } else if (resLike && resLike.status === 401) {
-        navigate("/login");
-      } else if (
-        resLike &&
-        resLike.data &&
-        resLike.data.message === "Can't React,You Already reacted."
-      ) {
-        notify("Already like it", "warn");
-      }
-      //   if (Enroll && Enroll.data && Enroll.data.statusCode === 200) {
-      //     notify("Done", "success");
-      //   } else if (Enroll && Enroll.status === 401) {
-      //     window.location.href = "/login";
-      //   }
-
-      if (Enroll && Enroll.status === 401) {
-        navigate("/login");
-      } else if (Enroll && Enroll.data && Enroll.data.statusCode === 200) {
-        window.location.href = Enroll.data.data;
-      }
     }
   }, [loading]);
 
-  return [comments, loading, onChangeComment, Submit, SubmitLike, OnEnroll];
+  return [comments, loading, onChangeComment, Submit];
 };
 
 export default AddCommentHook;

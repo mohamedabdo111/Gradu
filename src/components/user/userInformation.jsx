@@ -4,9 +4,13 @@ import AddCommentHook from "../../hookPages/addCommentHook";
 import { useParams } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AddLikeHook from "../../hookPages/addLikeHook";
+import EnrollHook from "../../hookPages/enrollHook";
 const UserInformation = ({ userInfo }) => {
   const { id } = useParams();
-  const [, , , , SubmitLike, OnEnroll] = AddCommentHook(id);
+  const [comments, loading, onChangeComment, Submit] = AddCommentHook(id);
+  const [loadingLike, SubmitLike] = AddLikeHook(id);
+  const [loadingEnroll, OnEnroll] = EnrollHook(id);
 
   return (
     <>
