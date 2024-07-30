@@ -1,11 +1,16 @@
 import React from "react";
+import Buttondash from "../fixed/buttondash";
 
-const AdminDash = () => {
+const AdminDash = ({ clicker }) => {
   return (
     <div>
-      <div>
-        <h1 className="head-dash text-xl">Overview</h1>
-        <div className="color-dash  bg-dash"></div>
+      <div className=" flex justify-between items-center">
+        <div>
+          <h1 className="head-dash text-xl">Overview</h1>
+          <div className="color-dash  bg-dash"></div>
+        </div>
+
+        <Buttondash clicker={clicker}></Buttondash>
       </div>
 
       <div className="bg-white mt-8 p-5 rounded-md">

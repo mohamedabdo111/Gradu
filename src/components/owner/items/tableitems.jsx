@@ -1,7 +1,12 @@
 import React from "react";
 import TrTable from "./trTable";
+import OwnerGetUserRequestHook from "../../../hookPages/ownerGetUserRequestHook";
+import PaginationCode from "../../fixed/Pagination";
+import NotFound from "../../fixed/notFound";
+import Loading from "../../fixed/Loading";
 
 const Tableitems = () => {
+  const [loading, data, onpress] = OwnerGetUserRequestHook();
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm rounded-md overflow-hidden">
@@ -23,13 +28,26 @@ const Tableitems = () => {
         </thead>
 
         <tbody className="divide-y divide-gray-200">
-          <TrTable></TrTable>
-          <TrTable></TrTable>
-          <TrTable></TrTable>
-          <TrTable></TrTable>
-          <TrTable></TrTable>
+          {!loading ? (
+            data && data.date ? (
+              data.date.map((item, index) => {
+                return <TrTable key={index} item={item}></TrTable>;
+              })
+            ) : (
+              <NotFound item={"users"}></NotFound>
+            )
+          ) : (
+            <Loading></Loading>
+          )}
         </tbody>
       </table>
+
+      {data && data.totalPages && data.totalPages > 1 ? (
+        <PaginationCode
+          pageCount={data.totalPages}
+          onpress={onpress}
+        ></PaginationCode>
+      ) : null}
     </div>
   );
 };

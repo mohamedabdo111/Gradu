@@ -4,6 +4,7 @@ import UserInformation from "../../components/user/userInformation";
 import UserComments from "../../components/user/userComments";
 import GetApartmentDetailsHook from "../../hookPages/getApartmentDetailsHook";
 import { useParams } from "react-router-dom";
+import Loading from "../../components/fixed/Loading";
 
 const UserApartmentDetailsPage = () => {
   const { id } = useParams();
@@ -21,7 +22,9 @@ const UserApartmentDetailsPage = () => {
           <h1 className="for-not-found ">Details Not Founded</h1>
         )
       ) : (
-        <h1 className="for-not-found ">Loadnig ... </h1>
+        <h1 className="for-not-found my-10">
+          <Loading></Loading>
+        </h1>
       )}
     </div>
   );

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import one, { useDispatch, useSelector } from "react-redux";
 import { GetAllApartmentAction } from "../../../redux/actions/getAllApartmentAction";
 import GetAllApartmentHook from "../../../hookPages/getAllApartmentHook";
+import Loading from "../../fixed/Loading";
+import NotFound from "../../fixed/notFound";
 const ApartmentThree = () => {
   const [loading, data] = GetAllApartmentHook();
   let threeApart = "";
@@ -54,10 +56,12 @@ const ApartmentThree = () => {
                 return <CardsLanding item={item} key={index}></CardsLanding>;
               })
             ) : (
-              <h1 className="for-not-found">There Are No Apartments</h1>
+              <NotFound item={"Apartments"}></NotFound>
             )
           ) : (
-            <h1 className="for-not-found">Loading...</h1>
+            <h1 className="for-not-found">
+              <Loading></Loading>
+            </h1>
           )}
         </div>
       </div>

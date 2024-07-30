@@ -31,7 +31,7 @@ const HeadderHook = () => {
   }
 
   if (JSON.parse(localStorage.getItem("UserInf")) !== null) {
-    var email = JSON.parse(localStorage.getItem("UserInf")).email;
+    var email = JSON.parse(localStorage.getItem("UserInf")).role;
   }
 
   return [

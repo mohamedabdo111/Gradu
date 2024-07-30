@@ -5,8 +5,9 @@ import AddImage from "../../images/addImage.png";
 import OwnerAddApartmentHook from "../../hookPages/ownerAddApartmentHook";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Buttondash from "../fixed/buttondash";
 
-const OwnerFlat = () => {
+const OwnerFlat = ({ clicker }) => {
   const [
     images,
     setImages,
@@ -38,12 +39,16 @@ const OwnerFlat = () => {
 
   return (
     <div className="mb-9">
-      <div className="  sm:flex justify-between items-center">
-        <div className="mb-5 sm:mb-0">
-          <h1 className="head-dash text-xl">Add Flat</h1>
-          <div className="color-dash  bg-flat"></div>
+      <div className="  md:flex justify-between items-center">
+        <div className=" flex justify-between">
+          <div>
+            <h1 className="head-dash text-xl">Add Flat</h1>
+            <div className="color-dash bg-flat"></div>
+          </div>
+
+          <Buttondash clicker={clicker}></Buttondash>
         </div>
-        <div className="flex gap-8 justify-between">
+        <div className="flex gap-8 justify-between mt-6 md:mt-0">
           <button
             className="p-3 text-white bg-dash rounded-xl  w-[80px] sm:w-[150px]"
             onClick={Submit}

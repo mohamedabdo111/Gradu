@@ -2,8 +2,9 @@ import React from "react";
 import UpdatePasswordHook from "../../hookPages/updatePassword";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Buttondash from "../fixed/buttondash";
 
-const OwnerPassword = () => {
+const OwnerPassword = ({ clicker }) => {
   const [
     password,
     confirmPassword,
@@ -16,9 +17,13 @@ const OwnerPassword = () => {
 
   return (
     <div>
-      <div>
-        <h1 className="head-dash text-xl">Change Password</h1>
-        <div className="color-dash  bg-pass"></div>
+      <div className=" flex justify-between items-center">
+        <div>
+          <h1 className="head-dash text-xl">Change Password</h1>
+          <div className="color-dash bg-pass"></div>
+        </div>
+
+        <Buttondash clicker={clicker}></Buttondash>
       </div>
 
       <div className=" w-[100%] md:w-[50%] mt-9">

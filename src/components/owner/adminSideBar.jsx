@@ -5,8 +5,8 @@ const Ownersidebar = () => {
   const pathName = useLocation();
   return (
     <div
-      className="bg-white py-3 px-6 rounded-md"
-      style={{ minHeight: "80vh" }}
+      className="bg-white py-3 px-6 rounded-md shadow-lg md:shadow-none"
+      style={{ height: "80vh" }}
     >
       <h1 className="my-4 text-gray-400 ">MENU</h1>
 

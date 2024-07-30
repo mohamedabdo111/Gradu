@@ -19,6 +19,8 @@ export const Update_profile = "Update_profile";
 export const Add_Apartment = "Add_Apartment";
 export const Get_Apartment_Edit = "Get_Apartment_Edit";
 export const Edit_Apartment = "Edit_Apartment";
+export const Get_User_requestes = "Get_User_requestes";
+export const Handle_Request = "Handle_Request";
 
 // admin dashboard
 
@@ -32,3 +34,4 @@ export const Accept_Pending = "Accept_Pending";
 export const Add_Comment = "Add_Comment";
 export const Add_Like = "Add_Like";
 export const Enroll = "Enroll";
+export const requestApartment = "requestApartment";

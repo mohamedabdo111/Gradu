@@ -2,12 +2,16 @@ import React from "react";
 import AdminTr from "./items/adminTr";
 import AdminTable from "./adminTable";
 import AdminAllUsersHook from "../../hookPages/adminAllUsersHook";
+import Buttondash from "../fixed/buttondash";
 
-const Adminusers = () => {
+const Adminusers = ({ clicker }) => {
   const [, , , loadingg, numberUsers] = AdminAllUsersHook();
 
   return (
     <div>
+      <div className=" flex justify-end">
+        <Buttondash clicker={clicker}></Buttondash>
+      </div>
       <div className=" grid grid-cols-12 gap-6 m-auto ">
         <div className="bg-white p-5 text-center col-span-4 h-[155px] flex flex-col justify-center items-center rounded-xl shadow-lg    ">
           <h1>Total Users</h1>

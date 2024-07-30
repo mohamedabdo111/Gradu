@@ -3,6 +3,7 @@ import UserSearchBar from "../../components/user/userSearchBar";
 import UserCard from "../../components/user/userCard";
 import GetAllApartmentHook from "../../hookPages/getAllApartmentHook";
 import PaginationCode from "../../components/fixed/Pagination";
+import Loading from "../../components/fixed/Loading";
 
 const UserAllFlatsPage = () => {
   const [loading, data, onpres] = GetAllApartmentHook();
@@ -24,7 +25,9 @@ const UserAllFlatsPage = () => {
             <h1 className="for-not-found">There Are No Apartments</h1>
           )
         ) : (
-          <h1 className="for-not-found">Loading...</h1>
+          <h1 className="for-not-found">
+            <Loading></Loading>
+          </h1>
         )}
       </div>
       {pageCount && pageCount > 1 ? (

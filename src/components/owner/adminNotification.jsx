@@ -3,7 +3,8 @@ import NotificationSection from "./items/notificationSection";
 import { useDispatch, useSelector } from "react-redux";
 import { GetNotificationAction } from "../../redux/actions/ownerAction";
 import GetNotificationHook from "../../hookPages/getNotificationHook";
-const AdminNotification = () => {
+import Buttondash from "../fixed/buttondash";
+const AdminNotification = ({ clicker }) => {
   if (JSON.parse(localStorage.getItem("UserInf")) != null) {
     var userId = JSON.parse(localStorage.getItem("UserInf")).userId;
   } else {
@@ -14,9 +15,13 @@ const AdminNotification = () => {
 
   return (
     <div>
-      <div>
-        <h1 className="head-dash text-xl">Notification</h1>
-        <div className="color-dash  bg-notifi"></div>
+      <div className=" flex justify-between items-center">
+        <div>
+          <h1 className="head-dash text-xl">Notification</h1>
+          <div className="color-dash bg-notifi"></div>
+        </div>
+
+        <Buttondash clicker={clicker}></Buttondash>
       </div>
 
       <div className="w-[95%] md:w-[65%] mx-auto mt-8">

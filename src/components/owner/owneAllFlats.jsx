@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import FlatCardOwner from "./items/flatCardOwner";
-import { useDispatch, useSelector } from "react-redux";
-import { GetApartmentAction } from "../../redux/actions/ownerAction";
+
 import PaginationCode from "../fixed/Pagination";
 import OwenrAllFlatsHook from "../../hookPages/owenrAllFlats";
 import NotFound from "../fixed/notFound";
 import Loading from "../fixed/Loading";
-const OwneAllFlats = () => {
+import Buttondash from "../fixed/buttondash";
+const OwneAllFlats = ({ clicker }) => {
   if (JSON.parse(localStorage.getItem("UserInf")) != null) {
     var userId = JSON.parse(localStorage.getItem("UserInf")).userId;
   } else {
@@ -16,9 +16,13 @@ const OwneAllFlats = () => {
 
   return (
     <div>
-      <div>
-        <h1 className="head-dash text-xl">All Flats</h1>
-        <div className="color-dash  bg-notifi"></div>
+      <div className=" flex justify-between items-center">
+        <div>
+          <h1 className="head-dash text-xl">All Apartments</h1>
+          <div className="color-dash bg-notifi"></div>
+        </div>
+
+        <Buttondash clicker={clicker}></Buttondash>
       </div>
 
       {!loading ? (

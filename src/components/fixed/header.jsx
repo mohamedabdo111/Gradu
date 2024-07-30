@@ -136,7 +136,7 @@ const Header = () => {
                     className="absolute end-0 z-10 mt-2 w-60 rounded-md border border-gray-100 bg-white shadow-lg"
                     role="menu"
                   >
-                    <div className=" rounded-lg px-2 py-2 text-sm text-gray-500 flex gap-1 items-center  ">
+                    <div className=" rounded-lg px-4 py-2 text-sm text-gray-500 flex gap-1 items-center  ">
                       <img
                         src={ImageUser === null ? img : ImageUser}
                         alt="imageUser"

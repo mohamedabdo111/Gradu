@@ -12,6 +12,8 @@ import {
   Get_Apartments_owner,
   Get_Notification,
   Get_profile,
+  Get_User_requestes,
+  Handle_Request,
   Remove_Apartment,
   Update_Password,
   Update_profile,
@@ -129,6 +131,24 @@ export const AddApartmentAction = (formdata) => async (dispatch) => {
     });
   }
 };
+export const HandleRequestAction = (data) => async (dispatch) => {
+  try {
+    const res = await UsePostDateWithOutImage(
+      "Owner/ApartmentsRequestsHandle",
+      data
+    );
+
+    dispatch({
+      type: Handle_Request,
+      data: res,
+    });
+  } catch (error) {
+    dispatch({
+      type: Handle_Request,
+      data: error.response,
+    });
+  }
+};
 
 export const GetAparmentEditAction = (id) => async (dispatch) => {
   try {
@@ -163,3 +183,22 @@ export const EditApartmentAction = (formdata) => async (dispatch) => {
     });
   }
 };
+
+export const GetUsersRequestAction =
+  (id, page, size, search) => async (dispatch) => {
+    try {
+      const res = await UseGetDataToken(
+        `Owner/GetApartmentsRequests?OwnerId=${id}&PageNumber=${page}&PageSize=${size}`
+      );
+
+      dispatch({
+        type: Get_User_requestes,
+        data: res,
+      });
+    } catch (error) {
+      dispatch({
+        type: Get_User_requestes,
+        data: error.response,
+      });
+    }
+  };

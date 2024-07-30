@@ -1,5 +1,10 @@
 import { UsePostDateWithOutImage } from "../../hooks/usePostData";
-import { Add_Comment, Add_Like, Enroll } from "../types/types";
+import {
+  Add_Comment,
+  Add_Like,
+  Enroll,
+  requestApartment,
+} from "../types/types";
 
 export const AddCommentAction = (data) => async (dispatch) => {
   try {
@@ -42,6 +47,21 @@ export const EnrollAction = (data) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: Enroll,
+      data: error.response,
+    });
+  }
+};
+export const RequestApartmentAction = (data) => async (dispatch) => {
+  try {
+    const res = await UsePostDateWithOutImage("User/RequestApartment", data);
+
+    dispatch({
+      type: requestApartment,
+      data: res,
+    });
+  } catch (error) {
+    dispatch({
+      type: requestApartment,
       data: error.response,
     });
   }

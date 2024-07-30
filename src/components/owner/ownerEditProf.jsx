@@ -1,16 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import img from "../../images/user login.png";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  GetProfileAction,
-  UpdateProfileAction,
-} from "../../redux/actions/ownerAction";
-import { notify } from "../fixed/notify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import OwnerGetProfileInfoHook from "../../hookPages/ownerGetProfileInfoHook";
+import Buttondash from "../fixed/buttondash";
 
-const OwnerEditProf = () => {
+const OwnerEditProf = ({ clicker }) => {
   const [
     onChangeUserName,
     onChangeEmail,
@@ -27,9 +22,13 @@ const OwnerEditProf = () => {
 
   return (
     <div>
-      <div>
-        <h1 className="head-dash text-xl">Edit Profile</h1>
-        <div className="color-dash  bg-editprof"></div>
+      <div className=" flex justify-between items-center">
+        <div>
+          <h1 className="head-dash text-xl">Edit Profile</h1>
+          <div className="color-dash bg-editprof"></div>
+        </div>
+
+        <Buttondash clicker={clicker}></Buttondash>
       </div>
 
       <div className=" w-[100%] md:w-[90%] mt-9 grid grid-cols-12 m-auto">

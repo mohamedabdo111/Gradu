@@ -4,15 +4,20 @@ import PaginationCode from "../fixed/Pagination";
 import AdminGetAllPendingHook from "../../hookPages/adminGetAllPendingHook";
 import NotFound from "../fixed/notFound";
 import Loading from "../fixed/Loading";
+import Buttondash from "../fixed/buttondash";
 
-const AdminPending = () => {
+const AdminPending = ({ clicker }) => {
   const [loading, data, onpress] = AdminGetAllPendingHook();
 
   return (
-    <div>
-      <div>
-        <h1 className="head-dash text-xl">Pending</h1>
-        <div className="color-dash  bg-zinc-700"></div>
+    <div style={{ minHeight: "120vh" }}>
+      <div className=" flex justify-between items-center">
+        <div>
+          <h1 className="head-dash text-xl">Pending</h1>
+          <div className="color-dash bg-zinc-700"></div>
+        </div>
+
+        <Buttondash clicker={clicker}></Buttondash>
       </div>
 
       <div className=" w-[100%] sm:w-[65%] mx-auto my-6">
