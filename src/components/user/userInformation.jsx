@@ -1,6 +1,13 @@
 import React from "react";
 import img from "../../images/user login.png";
+import AddCommentHook from "../../hookPages/addCommentHook";
+import { useParams } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const UserInformation = ({ userInfo }) => {
+  const { id } = useParams();
+  const [, , , , SubmitLike, OnEnroll] = AddCommentHook(id);
+
   return (
     <>
       <div className=" flex flex-row-reverse justify-between">
@@ -19,7 +26,10 @@ const UserInformation = ({ userInfo }) => {
             {userInfo.apartmentDescription}
           </p>
         </div>
-        <div className=" w-fit h-fit relative cursor-pointer">
+        <div
+          className=" w-fit h-fit relative cursor-pointer"
+          onClick={SubmitLike}
+        >
           <svg
             className="w-[48px] h-[48px] text-red-600 "
             aria-hidden="true"
@@ -36,7 +46,9 @@ const UserInformation = ({ userInfo }) => {
       </div>
       <div className=" flex flex-row-reverse justify-between ">
         <p className="mt-2 text-lg text-gray-500 fam">{`(${userInfo.totalCount} / ${userInfo.studnetExistingIn})`}</p>
-        <button className=" btn bg-sec">Enroll</button>
+        <button className=" btn bg-sec" onClick={OnEnroll}>
+          Enroll
+        </button>
       </div>
 
       {/* user Information */}
@@ -44,7 +56,8 @@ const UserInformation = ({ userInfo }) => {
         <img
           src={userInfo.ownerImageUrl === null ? img : userInfo.ownerImageUrl}
           alt="userImage"
-          className=" w-[100px] h-[100px] rounded-full border-4 border-sec "
+          className=" w-[100px] h-[100px] rounded-full border-4 border-sec  object-cover"
+          property="lazy"
         ></img>
         <div className="text-end">
           <h1 className="fam text-xl font-bold">{userInfo.ownerName}</h1>
@@ -52,6 +65,7 @@ const UserInformation = ({ userInfo }) => {
             (عدد الشقق) {userInfo.ownerApartmentCount}
           </p>
         </div>
+        <ToastContainer></ToastContainer>
       </div>
     </>
   );

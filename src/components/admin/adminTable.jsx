@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TrTable from "../owner/items/trTable";
 import AdminTr from "./items/adminTr";
+import { useDispatch, useSelector } from "react-redux";
+import { GetAllUsersAction } from "../../redux/actions/adminAction";
+import NotFound from "../fixed/notFound";
+import Loading from "../fixed/Loading";
+import PaginationCode from "../fixed/Pagination";
+import AdminAllUsersHook from "../../hookPages/adminAllUsersHook";
 
 const AdminTable = () => {
+  const [data, onpress, loading, loadingg, numberUsers] = AdminAllUsersHook();
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm rounded-md overflow-hidden">
@@ -24,11 +31,25 @@ const AdminTable = () => {
         </thead>
 
         <tbody className="divide-y divide-gray-200">
-          <AdminTr></AdminTr>
-          <AdminTr></AdminTr>
-          <AdminTr></AdminTr>
+          {!loading ? (
+            data && data.date ? (
+              data.date.map((item, index) => {
+                return <AdminTr key={index} item={item}></AdminTr>;
+              })
+            ) : (
+              <NotFound item={"Users"}></NotFound>
+            )
+          ) : (
+            <Loading></Loading>
+          )}
         </tbody>
       </table>
+      {data && data && data.totalPages > 1 ? (
+        <PaginationCode
+          pageCount={data.totalPages}
+          onpress={onpress}
+        ></PaginationCode>
+      ) : null}
     </div>
   );
 };

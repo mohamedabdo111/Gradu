@@ -100,7 +100,7 @@ const OwnerFlat = () => {
             <input
               type="file"
               accept="image/*"
-              className=" p-2 rounded-lg bg-zinc-800 shadow-xl text-white"
+              className=" p-2 rounded-lg bg-zinc-800 shadow-xl text-white w-full"
               onChange={onChangeImage}
             ></input>
           </div>
@@ -192,7 +192,7 @@ const OwnerFlat = () => {
             <input
               type="file"
               accept="image/*"
-              className=" p-2 rounded-lg bg-zinc-800 shadow-xl text-white"
+              className=" p-2 rounded-lg bg-zinc-800 shadow-xl text-white w-full"
               onChange={onChangeDocument}
             ></input>
           </div>

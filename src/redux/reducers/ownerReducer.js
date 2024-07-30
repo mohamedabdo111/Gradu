@@ -1,5 +1,7 @@
 import {
   Add_Apartment,
+  Edit_Apartment,
+  Get_Apartment_Edit,
   Get_Apartments_owner,
   Get_Notification,
   Get_profile,
@@ -16,6 +18,8 @@ const intial = {
   profileInfo: [],
   Updateprofile: [],
   addApartment: [],
+  editApartment: [],
+  getApartmentEdit: [],
   loading: true,
 };
 
@@ -41,6 +45,12 @@ export const AdminReducer = (state = intial, action) => {
     }
     case Add_Apartment: {
       return { ...state, addApartment: action.data, loading: false };
+    }
+    case Edit_Apartment: {
+      return { ...state, editApartment: action.data, loading: false };
+    }
+    case Get_Apartment_Edit: {
+      return { ...state, getApartmentEdit: action.data, loading: false };
     }
     default: {
       return state;

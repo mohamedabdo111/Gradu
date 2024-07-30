@@ -27,6 +27,7 @@ import ForgetPassword from "./components/auth/forgetPassword";
 import EmailForget from "./components/auth/emailuser";
 import CodeNumber from "./components/auth/codeNumber";
 import { SkeletonTheme } from "react-loading-skeleton";
+import OwnerEditApartmentPage from "./pages/owner/ownerEditApartment";
 
 const App = () => {
   return (
@@ -61,6 +62,10 @@ const App = () => {
             <Route
               path="/owner/flat"
               element={<OwnerFlatPage></OwnerFlatPage>}
+            ></Route>
+            <Route
+              path="/owner/edit-flat/:id"
+              element={<OwnerEditApartmentPage></OwnerEditApartmentPage>}
             ></Route>
             <Route
               path="/owner/update-password"

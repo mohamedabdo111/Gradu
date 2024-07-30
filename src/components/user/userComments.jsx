@@ -1,7 +1,13 @@
 import React from "react";
 import img from "../../images/user login.png";
+import AddCommentHook from "../../hookPages/addCommentHook";
+import { useParams } from "react-router-dom";
 // import PaginationCode from "../fixed/Pagination";
 const UserComments = ({ comment, onpress }) => {
+  const { id } = useParams();
+  const [comments, loading, onChangeComment, Submit, SubmitLike] =
+    AddCommentHook(id);
+
   return (
     <div className=" bg-white p-4 rounded-lg">
       <h1 className=" text-xl font-semibold p-3">Comment</h1>
@@ -39,12 +45,16 @@ const UserComments = ({ comment, onpress }) => {
             alt="imguser"
             className=" w-[50px] h-[50px] rounded-full"
           ></img>
-          <input
+          <textarea
             type="text"
             placeholder="type comment"
             className=" outline-none border border-gray-400 w-[100%] sm:w-[75%] p-3 rounded-lg"
-          ></input>
-          <button className="btn bg-sec w-[100%] sm:w-[15%]">Send</button>
+            value={comments}
+            onChange={onChangeComment}
+          ></textarea>
+          <button className="btn bg-sec w-[100%] sm:w-[15%]" onClick={Submit}>
+            Send
+          </button>
         </div>
       </div>
     </div>

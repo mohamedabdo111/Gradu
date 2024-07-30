@@ -7,6 +7,8 @@ import {
 import { UseUpdata } from "../../hooks/useUpdate";
 import {
   Add_Apartment,
+  Edit_Apartment,
+  Get_Apartment_Edit,
   Get_Apartments_owner,
   Get_Notification,
   Get_profile,
@@ -123,6 +125,40 @@ export const AddApartmentAction = (formdata) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: Add_Apartment,
+      data: error.response,
+    });
+  }
+};
+
+export const GetAparmentEditAction = (id) => async (dispatch) => {
+  try {
+    const res = await UseGetDataToken(
+      `Owner/GetApartmentForEdit?ApartmentId=${id}`
+    );
+
+    dispatch({
+      type: Get_Apartment_Edit,
+      data: res,
+    });
+  } catch (error) {
+    dispatch({
+      type: Get_Apartment_Edit,
+      data: error.response,
+    });
+  }
+};
+
+export const EditApartmentAction = (formdata) => async (dispatch) => {
+  try {
+    const res = await UseUpdata("Owner/EditApartment", formdata);
+
+    dispatch({
+      type: Edit_Apartment,
+      data: res,
+    });
+  } catch (error) {
+    dispatch({
+      type: Edit_Apartment,
       data: error.response,
     });
   }

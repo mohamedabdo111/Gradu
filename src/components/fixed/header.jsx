@@ -1,31 +1,20 @@
 import React, { useState } from "react";
 import Logo from "../../images/Group11.png";
 import img from "../../images/user login.png";
+import HeadderHook from "../../hookPages/headderHook";
 const Header = () => {
-  const [ispress, setIsPress] = useState(false);
-  const [ispressuser, setIsPressuser] = useState(false);
-
-  const activate = () => {
-    setIsPress(!ispress);
-  };
-
-  const notActive = () => {
-    setIsPress(false);
-  };
-
-  const activeuser = () => {
-    setIsPressuser(!ispressuser);
-  };
-
-  const Logout = () => {
-    localStorage.removeItem("UserInf");
-    window.location.reload();
-  };
-  const IsUserHere = JSON.parse(localStorage.getItem("UserInf"));
-
-  if (JSON.parse(localStorage.getItem("UserInf")) !== null) {
-    var ImageUser = JSON.parse(localStorage.getItem("UserInf")).userImageUrl;
-  }
+  const [
+    activate,
+    ispress,
+    ispressuser,
+    notActive,
+    activeuser,
+    Logout,
+    IsUserHere,
+    ImageUser,
+    userName,
+    email,
+  ] = HeadderHook();
 
   return (
     <header className="bg-white shadow-md  ">
@@ -64,22 +53,6 @@ const Header = () => {
                     href="#"
                   >
                     Contact US
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="text-gray-500 transition hover:text-gray-500/75"
-                    href="/owner/dashboard"
-                  >
-                    Owner dash
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="text-gray-500 transition hover:text-gray-500/75"
-                    href="/admin/dashboard"
-                  >
-                    Admin dash
                   </a>
                 </li>
 
@@ -160,9 +133,21 @@ const Header = () => {
 
                 {ispressuser ? (
                   <div
-                    className="absolute end-0 z-10 mt-2 w-56 rounded-md border border-gray-100 bg-white shadow-lg"
+                    className="absolute end-0 z-10 mt-2 w-60 rounded-md border border-gray-100 bg-white shadow-lg"
                     role="menu"
                   >
+                    <div className=" rounded-lg px-2 py-2 text-sm text-gray-500 flex gap-1 items-center  ">
+                      <img
+                        src={ImageUser === null ? img : ImageUser}
+                        alt="imageUser"
+                        className=" w-[40px] h-[40px] rounded-full object-cover"
+                        property="lazy"
+                      ></img>
+                      <div>
+                        <p className=" text-zinc-800">{userName}</p>
+                        <p>{email}</p>
+                      </div>
+                    </div>
                     <div className="p-2">
                       {IsUserHere.role === "Owner" ? (
                         <a
