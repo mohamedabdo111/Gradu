@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import RegisterHook from "../../hookPages/registerHook";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loading from "../fixed/Loading";
 const Register = () => {
   const [
     onChangeUserName,
@@ -24,9 +25,18 @@ const Register = () => {
     gender,
     userType,
     submit,
+    isPress,
+    loading,
   ] = RegisterHook();
   return (
     <div className=" grid grid-cols-12 gap-4 bg-login">
+      {isPress ? (
+        loading ? (
+          <div className=" absolute top-[50%] left-[50%]  p-7">
+            <Loading></Loading>
+          </div>
+        ) : null
+      ) : null}
       <div className=" hidden md:block md:col-span-5  lg:col-span-6 m-auto">
         <img src={img} alt="vector" className=" w-[450px]" />
       </div>
