@@ -1,6 +1,8 @@
 import { UseGetDate } from "../../hooks/useGetDate";
 import { Get_Apartment, Get_Apartment_Details } from "../types/types";
 
+//`User/GetApartmentsMain?PageNumber=${number}&PageSize=${size}&Search=${search}&Gender=${gen}&City=${ci}&CountInApartment=${numCount}&minPrice=${minprice}&maxPrice=${maxprice}`
+
 export const GetAllApartmentAction = (number, size) => async (dispatch) => {
   try {
     const res = await UseGetDate(

@@ -37,7 +37,9 @@ const Tableitems = () => {
               <NotFound item={"users"}></NotFound>
             )
           ) : (
-            <Loading></Loading>
+            <h1 className="for-not-found">
+              <Loading></Loading>
+            </h1>
           )}
         </tbody>
       </table>

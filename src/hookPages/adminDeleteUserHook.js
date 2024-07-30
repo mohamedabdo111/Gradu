@@ -32,6 +32,8 @@ const AdminDeleteUserHook = (id) => {
           window.location.reload();
         }, 2000);
       }
+
+      console.log(res);
     }
   }, [loading]);
 

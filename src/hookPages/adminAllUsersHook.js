@@ -19,7 +19,7 @@ const AdminAllUsersHook = () => {
   };
 
   useEffect(() => {
-    get(1, 8);
+    get(1, 5);
     const numbers = async () => {
       setLoadingg(true);
       await dispatch(GetNumbersUsersAction());
@@ -29,7 +29,7 @@ const AdminAllUsersHook = () => {
   }, []);
 
   const onpress = async (e) => {
-    get(e, 8);
+    get(e, 5);
   };
 
   const res = useSelector((item) => item.realAdmin.getAllUsers);

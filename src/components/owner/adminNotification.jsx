@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { GetNotificationAction } from "../../redux/actions/ownerAction";
 import GetNotificationHook from "../../hookPages/getNotificationHook";
 import Buttondash from "../fixed/buttondash";
+import Loading from "../fixed/Loading";
+import NotFound from "../fixed/notFound";
 const AdminNotification = ({ clicker }) => {
   if (JSON.parse(localStorage.getItem("UserInf")) != null) {
     var userId = JSON.parse(localStorage.getItem("UserInf")).userId;
@@ -42,10 +44,14 @@ const AdminNotification = ({ clicker }) => {
               );
             })
           ) : (
-            <h1 className="for-not-found">There are no Notifications</h1>
+            <h1 className="for-not-found">
+              <NotFound item={"Notifications"}></NotFound>
+            </h1>
           )
         ) : (
-          <h1 className="for-not-found">Loading ...</h1>
+          <h1 className="for-not-found">
+            <Loading></Loading>
+          </h1>
         )}
       </div>
     </div>

@@ -28,29 +28,34 @@ import EmailForget from "./components/auth/emailuser";
 import CodeNumber from "./components/auth/codeNumber";
 import { SkeletonTheme } from "react-loading-skeleton";
 import OwnerEditApartmentPage from "./pages/owner/ownerEditApartment";
+import ProtectRouteHock from "./components/protectRoutes/ProtectRoutesHook";
+import ProtectedRoute from "./components/protectRoutes/protectRoutes";
 
 const App = () => {
+  const [isUser, isAdmin, isOwner, userDate] = ProtectRouteHock();
   return (
     <>
       <Header></Header>
-      <SkeletonTheme baseColor="#313131" highlightColor="#525252">
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<LangingPage></LangingPage>}></Route>
-            <Route path="/login" element={<Login></Login>}></Route>
-            <Route path="/register" element={<Register></Register>}></Route>
-            <Route
-              path="/forget-password"
-              element={<ForgetPassword></ForgetPassword>}
-            ></Route>
-            <Route
-              path="/email-address"
-              element={<EmailForget></EmailForget>}
-            ></Route>
-            <Route
-              path="/code-confirm"
-              element={<CodeNumber></CodeNumber>}
-            ></Route>
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LangingPage></LangingPage>}></Route>
+          <Route path="/login" element={<Login></Login>}></Route>
+          <Route path="/register" element={<Register></Register>}></Route>
+          <Route
+            path="/forget-password"
+            element={<ForgetPassword></ForgetPassword>}
+          ></Route>
+          <Route
+            path="/email-address"
+            element={<EmailForget></EmailForget>}
+          ></Route>
+          <Route
+            path="/code-confirm"
+            element={<CodeNumber></CodeNumber>}
+          ></Route>
+
+          <Route element={<ProtectedRoute auth={isOwner}></ProtectedRoute>}>
             <Route
               path="/owner/dashboard"
               element={<OwnerDashBoardPage></OwnerDashBoardPage>}
@@ -83,8 +88,10 @@ const App = () => {
               path="/owner/all-flats"
               element={<OwnerAllFlatsPage></OwnerAllFlatsPage>}
             ></Route>
+          </Route>
 
-            {/* admin */}
+          {/* admin */}
+          <Route element={<ProtectedRoute auth={isAdmin}></ProtectedRoute>}>
             <Route
               path="/admin/dashboard"
               element={<AdminDashBoardPagead></AdminDashBoardPagead>}
@@ -109,19 +116,19 @@ const App = () => {
               path="/admin/pending"
               element={<AdminPenddingPage></AdminPenddingPage>}
             ></Route>
+          </Route>
 
-            {/* users */}
-            <Route
-              path="/user/view-apartments"
-              element={<UserAllFlatsPage></UserAllFlatsPage>}
-            ></Route>
-            <Route
-              path="/user/apartment-details/:id"
-              element={<UserApartmentDetailsPage></UserApartmentDetailsPage>}
-            ></Route>
-          </Routes>
-        </BrowserRouter>
-      </SkeletonTheme>
+          {/* users */}
+          <Route
+            path="/user/view-apartments"
+            element={<UserAllFlatsPage></UserAllFlatsPage>}
+          ></Route>
+          <Route
+            path="/user/apartment-details/:id"
+            element={<UserApartmentDetailsPage></UserApartmentDetailsPage>}
+          ></Route>
+        </Routes>
+      </BrowserRouter>
 
       <Footer></Footer>
     </>

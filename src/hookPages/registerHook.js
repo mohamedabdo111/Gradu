@@ -104,7 +104,28 @@ const RegisterHook = () => {
         "Passwords must have at least one non alphanumeric character. ,Passwords must have at least one lowercase ('a'-'z'). ,Passwords must have at least one uppercase ('A'-'Z'). ,",
         "warn"
       );
+    } else if (
+      res &&
+      res.data &&
+      res.data.errors &&
+      res.data.errors.Email &&
+      res.data.errors.Email[0] ===
+        "The Email field is not a valid e-mail address."
+    ) {
+      return notify("The Email field is not a valid e-mail address.", "warn");
+    } else if (
+      res &&
+      res.data &&
+      res.data.message ===
+        `Username '${username}' is invalid, can only contain letters or digits. ,`
+    ) {
+      return notify(
+        ` Username '${username}' is invalid, can only contain letters or digits.`,
+        "warn"
+      );
     }
+
+    console.log(res.data);
   }, [loading]);
   return [
     onChangeUserName,

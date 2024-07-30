@@ -40,7 +40,9 @@ const AdminTable = () => {
               <NotFound item={"Users"}></NotFound>
             )
           ) : (
-            <Loading></Loading>
+            <h1 className="for-not-found">
+              <Loading></Loading>
+            </h1>
           )}
         </tbody>
       </table>

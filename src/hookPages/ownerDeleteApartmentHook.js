@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RemoveAction } from "../redux/actions/ownerAction";
 import { notify } from "../components/fixed/notify";
@@ -22,6 +22,7 @@ const OwnerDeleteApartmentHook = (id) => {
   };
 
   const res = useSelector((item) => item.AdminReducer.remove);
+  console.log(res);
 
   useEffect(() => {
     if (loading === false) {
