@@ -1,6 +1,9 @@
 import React from "react";
+import GetAllApartmentHook from "../../hookPages/getAllApartmentHook";
 
 const UserSearchBar = () => {
+  const [loading, data, onpres, search, onChangeSearch] = GetAllApartmentHook();
+
   return (
     <div className="flex  gap-3 container">
       <div className="bg-white sm:flex items-center rounded-xl p-3 my-3 mx-auto w-[100%] sm:w-[70%] col-span-10">
@@ -26,6 +29,8 @@ const UserSearchBar = () => {
             type="text"
             placeholder="Search Keywords, Apartments"
             className=" p-2  outline-none w-full "
+            value={search}
+            onChange={onChangeSearch}
           ></input>
         </div>
 

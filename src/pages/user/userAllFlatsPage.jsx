@@ -6,19 +6,23 @@ import PaginationCode from "../../components/fixed/Pagination";
 import Loading from "../../components/fixed/Loading";
 
 const UserAllFlatsPage = () => {
-  const [loading, data, onpres] = GetAllApartmentHook();
+  const [loading, , onpres, , , items] = GetAllApartmentHook();
 
-  if (data && data.totalPages) {
-    var pageCount = data.totalPages;
+  if (items && items.data && items.data.totalPages) {
+    var pageCount = items.data.totalPages;
   }
+
   return (
     <div className="m-2">
       <UserSearchBar></UserSearchBar>
 
       <div className=" grid grid-cols-12 gap-4 container">
         {!loading ? (
-          data && data.date ? (
-            data.date.map((item, index) => {
+          items &&
+          items.data &&
+          items.data.date &&
+          items.data.date.length > 0 ? (
+            items.data.date.map((item, index) => {
               return <UserCard item={item} key={index}></UserCard>;
             })
           ) : (

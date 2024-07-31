@@ -3,10 +3,10 @@ import { Get_Apartment, Get_Apartment_Details } from "../types/types";
 
 //`User/GetApartmentsMain?PageNumber=${number}&PageSize=${size}&Search=${search}&Gender=${gen}&City=${ci}&CountInApartment=${numCount}&minPrice=${minprice}&maxPrice=${maxprice}`
 
-export const GetAllApartmentAction = (number, size) => async (dispatch) => {
+export const GetAllApartmentAction = (queryString) => async (dispatch) => {
   try {
     const res = await UseGetDate(
-      `User/GetApartmentsMain?PageNumber=${number}&PageSize=${size}`
+      `User/GetApartmentsMain?${queryString}`
     );
     dispatch({
       type: Get_Apartment,
