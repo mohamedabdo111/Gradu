@@ -36,6 +36,7 @@ const GetAllApartmentHook = () => {
 
   useEffect(() => {
     get("");
+    localStorage.removeItem("search");
   }, []);
 
   const res = useSelector((item) => item.AllApartment.getApatments);
