@@ -1,12 +1,12 @@
 import React from "react";
 import GetAllApartmentHook from "../../hookPages/getAllApartmentHook";
 
-const UserSearchBar = () => {
-  const [loading, data, onpres, search, onChangeSearch] = GetAllApartmentHook();
+const UserSearchBar = ({ Activate }) => {
+  const [, , , search, onChangeSearch] = GetAllApartmentHook();
 
   return (
-    <div className="flex  gap-3 container">
-      <div className="bg-white sm:flex items-center rounded-xl p-3 my-3 mx-auto w-[100%] sm:w-[70%] col-span-10">
+    <div className="flex  gap-3 container  justify-center">
+      <div className="bg-white sm:flex items-center rounded-xl p-3  w-[100%] sm:w-[70%] col-span-10">
         <div className="flex items-center w-[100%] sm:w-[50%]">
           <svg
             className="w-[24px] h-[24px] text-gray-800 "
@@ -96,7 +96,10 @@ const UserSearchBar = () => {
         </div>
       </div>
 
-      <div className=" bg-white rounded-xl my-3 flex justify-center items-center cursor-pointer  ">
+      <div
+        className=" bg-white rounded-xl w-[55px] flex justify-center items-center cursor-pointer"
+        onClick={Activate}
+      >
         <svg
           className="w-[48px] h-[48px] text-gray-800 "
           aria-hidden="true"

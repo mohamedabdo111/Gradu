@@ -8,7 +8,7 @@ const GetAllApartmentHook = () => {
   const [data, setData] = useState("");
   const [search, setSearch] = useState("");
 
-  const limit = 2;
+  const limit = 3;
   const get = async (word) => {
     setLoading(true);
     await dispatch(GetAllApartmentAction(`PageSize=${limit}&Search=${word}`));
@@ -26,11 +26,29 @@ const GetAllApartmentHook = () => {
 
   const onpres = async (e) => {
     let word = "";
+    let gender = "";
+    let city = "";
+    let users = 0;
+    let minPrice = 0;
     if (localStorage.getItem("search") !== null) {
       word = localStorage.getItem("search");
     }
+    if (localStorage.getItem("city") !== null) {
+      city = localStorage.getItem("city");
+    }
+    if (localStorage.getItem("minPrice") !== null) {
+      minPrice = localStorage.getItem("minPrice");
+    }
+    if (localStorage.getItem("gender") !== null) {
+      gender = localStorage.getItem("gender");
+    }
+    if (localStorage.getItem("users") !== null) {
+      users = localStorage.getItem("users");
+    }
     await dispatch(
-      GetAllApartmentAction(`PageNumber=${e}&PageSize=${limit}&Search=${word}`)
+      GetAllApartmentAction(
+        `PageNumber=${e}&PageSize=${limit}&Search=${word}&Gender=${gender}&City=${city}&CountInApartment=${users}&minPrice=${minPrice}`
+      )
     );
   };
 

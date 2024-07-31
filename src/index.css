@@ -40,7 +40,26 @@ body {
   transform: translate(-50%, -50%);
   color: white;
 }
+.add {
+  position: absolute;
+  top: 50%;
 
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  color: white;
+  right: -12px;
+  user-select: none;
+}
+
+.min {
+  position: absolute;
+  top: 50%;
+
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  color: white;
+  left: -12px;
+}
 .banner-text {
   color: #9dc3d6;
   font-weight: 300;
@@ -354,3 +373,51 @@ body {
   /* width: 50% !important; */
   /* height: 100% !important; */
 }
+
+.sidebarSearch {
+  position: absolute;
+  width: 350px;
+  height: calc(100% + 15px);
+  background-color: white;
+  top: -8px;
+  right: -8px;
+  transition: all 0.5s;
+}
+.sidebarSearchhidden {
+  position: absolute;
+  width: 350px;
+  height: calc(100% + 15px);
+  background-color: white;
+  top: -8px;
+  right: -358px;
+  transition: all 0.5s;
+}
+
+/* slider */
+.slider {
+  width: 180px;
+  height: 6px;
+  background-color: #eb5757;
+  border-radius: 5px;
+}
+
+.slider .thumb {
+  width: 15px;
+  height: 15px;
+  background-color: #eb5757;
+  position: absolute;
+  top: -5px;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+/* .slider .track-0 {
+  width: 23px;
+  height: 23px;
+  background-color: black;
+} */
+
+/* .slider .track-1 {
+  width: 23px;
+  height: 23px;
+  background-color: black;
+} */
