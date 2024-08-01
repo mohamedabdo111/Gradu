@@ -33,10 +33,6 @@ const SidebarSearchHook = () => {
 
   const notActive = () => {
     setActive(false);
-    localStorage.removeItem("city");
-    localStorage.removeItem("minPrice");
-    localStorage.removeItem("gender");
-    localStorage.removeItem("users");
   };
 
   const Activate = () => {
@@ -63,14 +59,19 @@ const SidebarSearchHook = () => {
   };
 
   const onSearch = async () => {
+    let search = "";
     setLoading(true);
     localStorage.setItem("minPrice", minPrice);
     localStorage.setItem("city", city);
     localStorage.setItem("gender", gender);
     localStorage.setItem("users", users);
+
+    if (localStorage.getItem("search") !== null) {
+      search = localStorage.getItem("search");
+    }
     dispatch(
       GetAllApartmentAction(
-        `PageNumber=${1}&PageSize=${3}&Gender=${gender}&City=${city}&CountInApartment=${users}&minPrice=${minPrice}`
+        `PageNumber=${1}&PageSize=${3}&Search=${search}&Gender=${gender}&City=${city}&CountInApartment=${users}&minPrice=${minPrice}`
       )
     );
     setLoading(false);

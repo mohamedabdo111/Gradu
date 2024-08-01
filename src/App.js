@@ -30,6 +30,7 @@ import { SkeletonTheme } from "react-loading-skeleton";
 import OwnerEditApartmentPage from "./pages/owner/ownerEditApartment";
 import ProtectRouteHock from "./components/protectRoutes/ProtectRoutesHook";
 import ProtectedRoute from "./components/protectRoutes/protectRoutes";
+import UseInformationPage from "./pages/user/useInformationPage";
 
 const App = () => {
   const [isUser, isAdmin, isOwner, userDate] = ProtectRouteHock();
@@ -126,6 +127,10 @@ const App = () => {
           <Route
             path="/user/apartment-details/:id"
             element={<UserApartmentDetailsPage></UserApartmentDetailsPage>}
+          ></Route>
+          <Route
+            path="/user/information"
+            element={<UseInformationPage></UseInformationPage>}
           ></Route>
         </Routes>
       </BrowserRouter>

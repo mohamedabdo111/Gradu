@@ -11,13 +11,12 @@ const CardPending = ({ item }) => {
     <div className=" bg-white my-9 rounded-2xl">
       <div className="p-3 flex gap-3 items-center border-b-2 ">
         <img
-          src={
-            item.apartmentCoverImage === null ? img : item.apartmentCoverImage
-          }
+          src={item.ownerImage === null ? img : item.ownerImage}
           alt="image"
           width={70}
           height={70}
           className=" w-[65px] h-[65px] sm:w-[70px] sm:h-[70px] rounded-full "
+          property="lazy"
         ></img>
         <div>
           <p className=" text-gray-600">{item.ownerName}</p>
@@ -32,8 +31,12 @@ const CardPending = ({ item }) => {
 
         <div className=" border rounded-lg overflow-hidden">
           <img
-            src={item.ownerImage}
-            alt="imagecover"
+            src={
+              item.apartmentsPics && item.apartmentsPics[0]
+                ? item.apartmentsPics[0]
+                : null
+            }
+            alt="image cover"
             className=" rounded-lg w-full h-[225px] object-cover"
             property="lazy"
           ></img>
