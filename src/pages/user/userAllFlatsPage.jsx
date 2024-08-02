@@ -6,6 +6,7 @@ import PaginationCode from "../../components/fixed/Pagination";
 import Loading from "../../components/fixed/Loading";
 import Slider from "react-slider";
 import SidebarSearchHook from "../../hookPages/sidebarSearch";
+import LoadingCard from "../../components/fixed/loadingCard";
 
 const UserAllFlatsPage = () => {
   const [loading, , onpres, , , items] = GetAllApartmentHook();
@@ -40,6 +41,10 @@ const UserAllFlatsPage = () => {
     >
       <UserSearchBar Activate={Activate}></UserSearchBar>
 
+      {/* test */}
+
+      {/* test */}
+
       <div className=" grid grid-cols-12 gap-4 container">
         {!loading ? (
           items &&
@@ -53,9 +58,12 @@ const UserAllFlatsPage = () => {
             <h1 className="for-not-found">There Are No Apartments</h1>
           )
         ) : (
-          <h1 className="for-not-found">
-            <Loading></Loading>
-          </h1>
+          <>
+            <LoadingCard></LoadingCard>
+            <LoadingCard></LoadingCard>
+            <LoadingCard></LoadingCard>
+            <LoadingCard></LoadingCard>
+          </>
         )}
       </div>
       {pageCount && pageCount > 1 ? (

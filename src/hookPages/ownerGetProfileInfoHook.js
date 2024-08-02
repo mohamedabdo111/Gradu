@@ -12,6 +12,11 @@ const OwnerGetProfileInfoHook = () => {
   const [username, setuserName] = useState("");
   const [phone, setPhone] = useState("");
   const [imageVal, setImage] = useState("");
+  const [univerctiy, setUnivercity] = useState("");
+  const [college, setCollege] = useState("");
+  const [views, setViews] = useState("");
+  const [gender, setGender] = useState("");
+  const [role, setRole] = useState("");
   const [loading, setLoading] = useState(true);
   const [loadingSubmit, setLoadingSubmit] = useState(true);
 
@@ -78,6 +83,11 @@ const OwnerGetProfileInfoHook = () => {
         setmail(res.data.data.email);
         setPhone(res.data.data.phone);
         setImage(res.data.data.imagePath);
+        setUnivercity(res.data.data.university);
+        setCollege(res.data.data.college);
+        setViews(res.data.data.views);
+        setGender(res.data.data.gender);
+        setRole(res.data.data.roles);
       }
     }
   }, [loading]);
@@ -94,6 +104,11 @@ const OwnerGetProfileInfoHook = () => {
     imageVal,
     loading,
     loadingSubmit,
+    univerctiy,
+    college,
+    views,
+    gender,
+    role,
   ];
 };
 

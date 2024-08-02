@@ -22,7 +22,25 @@ const GetAllApartmentHook = () => {
 
   useEffect(() => {
     get(search);
+
+    if (search === "") {
+      localStorage.setItem("city", "");
+    }
+
+    if (search === "") {
+      localStorage.setItem("minPrice", 0);
+    }
+    if (search === "") {
+      localStorage.setItem("users", 0);
+    }
+    if (search === "") {
+      localStorage.setItem("gender", "");
+    }
   }, [search]);
+
+  useEffect(() => {
+    localStorage.setItem("city", "");
+  }, []);
 
   const onpres = async (e) => {
     let word = "";

@@ -5,8 +5,6 @@ import LangingPage from "./components/landingPage/langingpage";
 import Footer from "./components/fixed/footer";
 import Login from "./components/auth/login";
 import Register from "./components/auth/regester";
-import AdminDashBoardPage from "./pages/owner/adminDashBoardPage";
-import AdminNotificationPage from "./pages/owner/adminNotificationPage";
 import OwnerFlatPage from "./pages/owner/ownerFlatPage";
 import OwnerPasswordPage from "./pages/owner/ownerPasswordPage";
 import OwnerUsersPage from "./pages/owner/ownerUsersPage";
@@ -26,11 +24,12 @@ import UserApartmentDetailsPage from "./pages/user/userApartmentDetailsPage";
 import ForgetPassword from "./components/auth/forgetPassword";
 import EmailForget from "./components/auth/emailuser";
 import CodeNumber from "./components/auth/codeNumber";
-import { SkeletonTheme } from "react-loading-skeleton";
 import OwnerEditApartmentPage from "./pages/owner/ownerEditApartment";
 import ProtectRouteHock from "./components/protectRoutes/ProtectRoutesHook";
 import ProtectedRoute from "./components/protectRoutes/protectRoutes";
 import UseInformationPage from "./pages/user/useInformationPage";
+import UserUpdatePasswordPage from "./pages/user/userUpdatePassword";
+import { ScrollToTop } from "./components/ScrollToTop";
 
 const App = () => {
   const [isUser, isAdmin, isOwner, userDate] = ProtectRouteHock();
@@ -128,10 +127,16 @@ const App = () => {
             path="/user/apartment-details/:id"
             element={<UserApartmentDetailsPage></UserApartmentDetailsPage>}
           ></Route>
-          <Route
-            path="/user/information"
-            element={<UseInformationPage></UseInformationPage>}
-          ></Route>
+          <Route element={<ProtectedRoute auth={isUser}></ProtectedRoute>}>
+            <Route
+              path="/user/information"
+              element={<UseInformationPage></UseInformationPage>}
+            ></Route>
+            <Route
+              path="/user/password"
+              element={<UserUpdatePasswordPage></UserUpdatePasswordPage>}
+            ></Route>
+          </Route>
         </Routes>
       </BrowserRouter>
 

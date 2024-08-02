@@ -167,6 +167,24 @@ const Header = () => {
                           Admin Dashboard
                         </a>
                       ) : null}
+                      {IsUserHere.role === "User" ? (
+                        <a
+                          href="/user/information"
+                          className="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                          role="menuitem"
+                        >
+                          User Information
+                        </a>
+                      ) : null}
+                      {IsUserHere.role === "User" ? (
+                        <a
+                          href="/user/password"
+                          className="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                          role="menuitem"
+                        >
+                          Change Password
+                        </a>
+                      ) : null}
 
                       <p
                         className="block rounded-lg px-4 py-2 text-sm text-red-800 hover:bg-gray-50 hover:text-gray-700 cursor-pointer"
