@@ -77,13 +77,8 @@ const SidebarSearchHook = () => {
     setLoading(false);
   };
 
-  const res = useSelector((item) => item.AllApartment.getApatments);
+  // const res = useSelector((item) => item.AllApartment.getApatments);
 
-  useEffect(() => {
-    if (loading === false) {
-      console.log(res);
-    }
-  }, [loading]);
   return [
     min,
     max,

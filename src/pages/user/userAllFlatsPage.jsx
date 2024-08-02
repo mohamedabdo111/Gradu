@@ -3,7 +3,6 @@ import UserSearchBar from "../../components/user/userSearchBar";
 import UserCard from "../../components/user/userCard";
 import GetAllApartmentHook from "../../hookPages/getAllApartmentHook";
 import PaginationCode from "../../components/fixed/Pagination";
-import Loading from "../../components/fixed/Loading";
 import Slider from "react-slider";
 import SidebarSearchHook from "../../hookPages/sidebarSearch";
 import LoadingCard from "../../components/fixed/loadingCard";
@@ -40,10 +39,6 @@ const UserAllFlatsPage = () => {
       style={{ minHeight: "120vh" }}
     >
       <UserSearchBar Activate={Activate}></UserSearchBar>
-
-      {/* test */}
-
-      {/* test */}
 
       <div className=" grid grid-cols-12 gap-4 container">
         {!loading ? (

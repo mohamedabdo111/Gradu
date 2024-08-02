@@ -6,6 +6,11 @@ import OwnerGetProfileInfoHook from "../../hookPages/ownerGetProfileInfoHook";
 import Cover from "../../images/userinfo.png";
 import Loading from "../../components/fixed/Loading";
 const UseInformationPage = () => {
+  if (JSON.parse(localStorage.getItem("UserInf")) !== null) {
+    var id = JSON.parse(localStorage.getItem("UserInf")).userId;
+  } else {
+    id = "";
+  }
   const [
     ,
     ,
@@ -23,9 +28,7 @@ const UseInformationPage = () => {
     views,
     gender,
     role,
-  ] = OwnerGetProfileInfoHook();
-
-  console.log(loading);
+  ] = OwnerGetProfileInfoHook(id);
 
   return (
     <div className="my-14 container">
@@ -40,9 +43,8 @@ const UseInformationPage = () => {
             <img
               src={imageVal !== null ? imageVal : img}
               alt="user image"
-              className=" rounded-full"
-              width={70}
-              height={70}
+              className=" rounded-full object-cover"
+              style={{ width: "70px", height: "70px" }}
               property="lazy"
             />
             <div>
@@ -110,26 +112,38 @@ const UseInformationPage = () => {
               </div>
 
               <div>
-                <div className=" w-full my-7">
-                  <input
-                    type="text"
-                    placeholder="College"
-                    className=" p-2  w-[100%] md:w-[80%]  rounded-lg border-2 border-gray-300"
-                    value={college === null ? "unavailable" : college}
-                  ></input>
-                </div>
-                <div className=" w-full my-7">
-                  <input
-                    type="text"
-                    placeholder="University"
-                    className=" p-2  w-[100%] md:w-[80%]  rounded-lg border-2 border-gray-300"
-                    value={univerctiy === null ? "unavailable" : univerctiy}
-                  ></input>
-                </div>
+                {role === "Owner" ? null : (
+                  <>
+                    <div className=" w-full my-7">
+                      <input
+                        type="text"
+                        placeholder="College"
+                        className=" p-2  w-[100%] md:w-[80%]  rounded-lg border-2 border-gray-300"
+                        value={college === null ? "unavailable" : college}
+                      ></input>
+                    </div>
+                    <div className=" w-full my-7">
+                      <input
+                        type="text"
+                        placeholder="University"
+                        className=" p-2  w-[100%] md:w-[80%]  rounded-lg border-2 border-gray-300"
+                        value={univerctiy === null ? "unavailable" : univerctiy}
+                      ></input>
+                    </div>
+                  </>
+                )}
 
-                <div className="flex justify-center flex-col items-center p-2 border-gray-300 border-2 rounded-lg w-24 h-24">
-                  <h1 className=" font-semibold text-lg">Views</h1>
-                  <p className=" font-semibold text-lg">{views}</p>
+                <div className=" flex justify-between  w-[100%] md:w-[80%] ">
+                  <div className="flex justify-center flex-col items-center p-2 border-gray-300 border-2 rounded-lg w-24 h-24">
+                    <h1 className=" font-semibold text-lg">Views</h1>
+                    <p className=" font-semibold text-lg">{views}</p>
+                  </div>
+                  {role === "Owner" ? (
+                    <div className="flex justify-center flex-col items-center p-2 border-gray-300 border-2 rounded-lg w-fit h-24">
+                      <h1 className=" font-semibold text-lg">Apartments</h1>
+                      <p className=" font-semibold text-lg">5</p>
+                    </div>
+                  ) : null}
                 </div>
               </div>
             </div>

@@ -3,10 +3,12 @@ import img from "../../../images/user login.png";
 import AdminDeleteUserHook from "../../../hookPages/adminDeleteUserHook";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 const AdminTr = ({ item }) => {
   const [, NotActive, activeModal, RemoveUser, active] = AdminDeleteUserHook(
     item.userId
   );
+
   return (
     <>
       <tr className="odd:bg-gray-50">
@@ -18,7 +20,9 @@ const AdminTr = ({ item }) => {
               className=" rounded-full w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] object-cover "
               property="lazy"
             ></img>
-            <span>{item.name}</span>
+            <Link to={`/admin/user-information/${item.userId}`}>
+              <span>{item.name}</span>
+            </Link>
           </div>
         </td>
         <td className="whitespace-nowrap px-4 py-3 text-center text-gray-700">

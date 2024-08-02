@@ -6,7 +6,7 @@ import {
 } from "../redux/actions/ownerAction";
 import { notify } from "../components/fixed/notify";
 
-const OwnerGetProfileInfoHook = () => {
+const OwnerGetProfileInfoHook = (id) => {
   const dispatch = useDispatch();
   const [mail, setmail] = useState("");
   const [username, setuserName] = useState("");
@@ -19,6 +19,7 @@ const OwnerGetProfileInfoHook = () => {
   const [role, setRole] = useState("");
   const [loading, setLoading] = useState(true);
   const [loadingSubmit, setLoadingSubmit] = useState(true);
+  const [apart, setApart] = useState("");
 
   const onChangeUserName = (e) => {
     setuserName(e.target.value);
@@ -42,7 +43,7 @@ const OwnerGetProfileInfoHook = () => {
   useEffect(() => {
     const get = async () => {
       setLoading(true);
-      await dispatch(GetProfileAction(userId, userId));
+      await dispatch(GetProfileAction(id, userId));
       setLoading(false);
     };
     get();
@@ -88,6 +89,7 @@ const OwnerGetProfileInfoHook = () => {
         setViews(res.data.data.views);
         setGender(res.data.data.gender);
         setRole(res.data.data.roles);
+        setApart(res.data.data.apartments);
       }
     }
   }, [loading]);
@@ -109,6 +111,7 @@ const OwnerGetProfileInfoHook = () => {
     views,
     gender,
     role,
+    apart,
   ];
 };
 

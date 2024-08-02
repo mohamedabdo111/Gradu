@@ -30,6 +30,8 @@ import ProtectedRoute from "./components/protectRoutes/protectRoutes";
 import UseInformationPage from "./pages/user/useInformationPage";
 import UserUpdatePasswordPage from "./pages/user/userUpdatePassword";
 import { ScrollToTop } from "./components/ScrollToTop";
+import AdminViewUserInformation from "./components/admin/adminViewUserInformation";
+import AdminViewUserInformationPage from "./pages/admin/adminViewUserInformationPage";
 
 const App = () => {
   const [isUser, isAdmin, isOwner, userDate] = ProtectRouteHock();
@@ -97,6 +99,12 @@ const App = () => {
               element={<AdminDashBoardPagead></AdminDashBoardPagead>}
             ></Route>
             <Route
+              path="/admin/user-information/:id"
+              element={
+                <AdminViewUserInformationPage></AdminViewUserInformationPage>
+              }
+            ></Route>
+            <Route
               path="/admin/notification"
               element={<AdminNotifiPage></AdminNotifiPage>}
             ></Route>
@@ -127,7 +135,9 @@ const App = () => {
             path="/user/apartment-details/:id"
             element={<UserApartmentDetailsPage></UserApartmentDetailsPage>}
           ></Route>
-          <Route element={<ProtectedRoute auth={isUser}></ProtectedRoute>}>
+          <Route
+            element={<ProtectedRoute auth={isUser || isOwner}></ProtectedRoute>}
+          >
             <Route
               path="/user/information"
               element={<UseInformationPage></UseInformationPage>}
