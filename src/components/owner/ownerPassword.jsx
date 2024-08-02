@@ -15,6 +15,12 @@ const OwnerPassword = ({ clicker }) => {
     newpassword,
   ] = UpdatePasswordHook();
 
+  if (JSON.parse(localStorage.getItem("UserInf")) !== null) {
+    var role = JSON.parse(localStorage.getItem("UserInf")).role;
+  }
+
+  console.log(role);
+
   return (
     <div>
       <div className=" flex justify-between items-center">
@@ -23,7 +29,7 @@ const OwnerPassword = ({ clicker }) => {
           <div className="color-dash bg-pass"></div>
         </div>
 
-        <Buttondash clicker={clicker}></Buttondash>
+        {role === "User" ? null : <Buttondash clicker={clicker}></Buttondash>}
       </div>
 
       <div className=" w-[100%] md:w-[50%] mt-9">

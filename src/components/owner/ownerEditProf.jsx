@@ -6,6 +6,11 @@ import OwnerGetProfileInfoHook from "../../hookPages/ownerGetProfileInfoHook";
 import Buttondash from "../fixed/buttondash";
 
 const OwnerEditProf = ({ clicker }) => {
+  if (JSON.parse(localStorage.getItem("UserInf")) !== null) {
+    var id = JSON.parse(localStorage.getItem("UserInf")).userId;
+  } else {
+    id = "";
+  }
   const [
     onChangeUserName,
     onChangeEmail,
@@ -18,7 +23,7 @@ const OwnerEditProf = ({ clicker }) => {
     imageVal,
     loading,
     loadingSubmit,
-  ] = OwnerGetProfileInfoHook();
+  ] = OwnerGetProfileInfoHook(id);
 
   return (
     <div>
@@ -63,7 +68,7 @@ const OwnerEditProf = ({ clicker }) => {
               onChange={onChangePhone}
             />
           </div>
-          <div className="p-2  bg-transparent rounded-lg w-full text-center mt-6">
+          <div className="p-2 hidden md:block  bg-transparent rounded-lg w-full text-center mt-6">
             <button
               className="btns border border-editprof text-editprof hover:text-white hover:bg-editprof duration-100"
               onClick={onSubmit}
@@ -90,6 +95,15 @@ const OwnerEditProf = ({ clicker }) => {
             />
           </button>
           {/* make input file foucse in image not button */}
+        </div>
+
+        <div className="p-2 col-span-12 block md:hidden  bg-transparent rounded-lg w-full text-center mt-6">
+          <button
+            className="btns border border-editprof text-editprof hover:text-white hover:bg-editprof mx-auto duration-100"
+            onClick={onSubmit}
+          >
+            Save
+          </button>
         </div>
       </div>
       <ToastContainer></ToastContainer>

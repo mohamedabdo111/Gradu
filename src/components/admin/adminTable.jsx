@@ -8,8 +8,9 @@ import Loading from "../fixed/Loading";
 import PaginationCode from "../fixed/Pagination";
 import AdminAllUsersHook from "../../hookPages/adminAllUsersHook";
 
-const AdminTable = () => {
-  const [data, onpress, loading, loadingg, numberUsers] = AdminAllUsersHook();
+const AdminTable = ({ value }) => {
+  const [data, onpress, loading, loadingg, numberUsers] =
+    AdminAllUsersHook(value);
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm rounded-md overflow-hidden">

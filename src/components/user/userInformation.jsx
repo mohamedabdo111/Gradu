@@ -9,8 +9,8 @@ import EnrollHook from "../../hookPages/enrollHook";
 const UserInformation = ({ userInfo }) => {
   const { id } = useParams();
   const [comments, loading, onChangeComment, Submit] = AddCommentHook(id);
-  const [loadingLike, SubmitLike] = AddLikeHook(id);
-  const [loadingEnroll, OnEnroll] = EnrollHook(id);
+  const [, SubmitLike] = AddLikeHook(id);
+  const [, OnEnroll] = EnrollHook(id);
 
   return (
     <>

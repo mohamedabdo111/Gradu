@@ -5,8 +5,7 @@ import { useParams } from "react-router-dom";
 // import PaginationCode from "../fixed/Pagination";
 const UserComments = ({ comment, onpress }) => {
   const { id } = useParams();
-  const [comments, loading, onChangeComment, Submit, SubmitLike] =
-    AddCommentHook(id);
+  const [comments, , onChangeComment, Submit] = AddCommentHook(id);
 
   return (
     <div className=" bg-white p-4 rounded-lg">

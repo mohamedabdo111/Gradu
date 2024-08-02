@@ -31,7 +31,9 @@ const GetApartmentDetailsHook = (id) => {
     }
   }, [loading]);
 
-  return [loading, data];
+  let item = res.data;
+
+  return [loading, data, item];
 };
 
 export default GetApartmentDetailsHook;

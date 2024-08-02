@@ -9,10 +9,10 @@ import {
   Get_Pending,
 } from "../types/types";
 
-export const GetAllUsersAction = (page, size) => async (dispatch) => {
+export const GetAllUsersAction = (page, size, role) => async (dispatch) => {
   try {
     const res = await UseGetDataToken(
-      `Admin/GetAllUsers?PageNumber=${page}&PageSize=${size}`
+      `Admin/GetAllUsers?PageNumber=${page}&PageSize=${size}&Role=${role}`
     );
 
     dispatch({

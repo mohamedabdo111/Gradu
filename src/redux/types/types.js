@@ -35,3 +35,4 @@ export const Add_Comment = "Add_Comment";
 export const Add_Like = "Add_Like";
 export const Enroll = "Enroll";
 export const requestApartment = "requestApartment";
+export const UsersNum = "UsersNum";

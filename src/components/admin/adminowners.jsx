@@ -5,7 +5,7 @@ import AdminAllUsersHook from "../../hookPages/adminAllUsersHook";
 import Buttondash from "../fixed/buttondash";
 import { Link } from "react-router-dom";
 
-const Adminusers = ({ clicker }) => {
+const AdminOwner = ({ clicker }) => {
   const [, , , loadingg, numberUsers] = AdminAllUsersHook();
 
   return (
@@ -20,29 +20,31 @@ const Adminusers = ({ clicker }) => {
             {numberUsers && numberUsers.allUsers ? numberUsers.allUsers : null}
           </p>
         </div>
-        <div className=" request p-5 text-center col-span-4 h-[155px] flex flex-col justify-center items-center rounded-xl shadow-lg    ">
-          <h1> Students</h1>
-          <p className=" font-semibold mt-3 users">
-            {" "}
-            {numberUsers && numberUsers.students ? numberUsers.students : null}
-          </p>
-        </div>
-        <Link to={"/admin/owners"} className="col-span-4 h-[155px]">
-          <div className=" p-5 text-center  h-[155px] flex flex-col justify-center items-center rounded-xl shadow-lg bg-white ">
-            <h1>Owners </h1>
-            <p className=" font-semibold mt-3">
+        <Link to={"/admin/users"} className="col-span-4 h-[155px]">
+          <div className="  p-5 text-center h-[155px] flex flex-col justify-center items-center rounded-xl shadow-lg bg-white   ">
+            <h1> Students</h1>
+            <p className=" font-semibold mt-3 users">
               {" "}
-              {numberUsers && numberUsers.owners ? numberUsers.owners : null}
+              {numberUsers && numberUsers.students
+                ? numberUsers.students
+                : null}
             </p>
           </div>
         </Link>
+        <div className=" p-5 text-center col-span-4 h-[155px] flex flex-col justify-center items-center rounded-xl shadow-lg  request">
+          <h1>Owners </h1>
+          <p className=" font-semibold mt-3">
+            {" "}
+            {numberUsers && numberUsers.owners ? numberUsers.owners : null}
+          </p>
+        </div>
       </div>
 
       <div className="my-9">
-        <AdminTable value={"User"}></AdminTable>
+        <AdminTable value={"Owner"}></AdminTable>
       </div>
     </div>
   );
 };
 
-export default Adminusers;
+export default AdminOwner;

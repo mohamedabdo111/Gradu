@@ -8,15 +8,19 @@ import Loading from "../../components/fixed/Loading";
 
 const UserApartmentDetailsPage = () => {
   const { id } = useParams();
-  const [loading, data] = GetApartmentDetailsHook(id);
+  const [loading, data, item] = GetApartmentDetailsHook(id);
+  console.log(data);
+  console.log(item);
   return (
     <div className=" container">
       {!loading ? (
         data && data !== "" ? (
           <>
-            <UserImages apartmentInfo={data}></UserImages>
-            <UserInformation userInfo={data}></UserInformation>
-            <UserComments comment={data.apartmentComments}></UserComments>
+            <UserImages apartmentInfo={item ? item : null}></UserImages>
+            <UserInformation userInfo={item ? item : null}></UserInformation>
+            <UserComments
+              comment={item ? item.apartmentComments : null}
+            ></UserComments>
           </>
         ) : (
           <h1 className="for-not-found ">Details Not Founded</h1>

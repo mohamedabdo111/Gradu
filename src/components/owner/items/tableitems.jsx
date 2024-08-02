@@ -7,6 +7,7 @@ import Loading from "../../fixed/Loading";
 
 const Tableitems = () => {
   const [loading, data, onpress] = OwnerGetUserRequestHook();
+
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm rounded-md overflow-hidden">

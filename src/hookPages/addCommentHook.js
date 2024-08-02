@@ -7,6 +7,7 @@ import {
   EnrollAction,
 } from "../redux/actions/anyoneAction";
 import { useNavigate } from "react-router-dom";
+import { GetApartmentDetailsAction } from "../redux/actions/getAllApartmentAction";
 
 const AddCommentHook = (id) => {
   const [comments, setComment] = useState("");
@@ -42,7 +43,10 @@ const AddCommentHook = (id) => {
   useEffect(() => {
     if (loading === false) {
       if (res && res.data && res.data.statusCode === 200) {
-        window.location.reload();
+        const get = async () => {
+          await dispatch(GetApartmentDetailsAction(id));
+        };
+        get();
       } else if (res && res.status === 401) {
         navigate("/login");
       }

@@ -7,6 +7,7 @@ import {
   EnrollAction,
 } from "../redux/actions/anyoneAction";
 import { useNavigate } from "react-router-dom";
+import { GetApartmentDetailsAction } from "../redux/actions/getAllApartmentAction";
 
 const AddLikeHook = (id) => {
   const navigate = useNavigate();
@@ -31,16 +32,22 @@ const AddLikeHook = (id) => {
   const resLike = useSelector((item) => item.AnyOne.addLike);
 
   useEffect(() => {
-    if (resLike && resLike.data && resLike.data.statusCode === 200) {
-      window.location.reload();
-    } else if (resLike && resLike.status === 401) {
-      navigate("/login");
-    } else if (
-      resLike &&
-      resLike.data &&
-      resLike.data.message === "Can't React,You Already reacted."
-    ) {
-      notify("Already like it", "warn");
+    if (loadingLike === false) {
+      if (resLike && resLike.data && resLike.data.statusCode === 200) {
+        const get = async () => {
+          await dispatch(GetApartmentDetailsAction(id));
+        };
+        get();
+        return;
+      } else if (resLike && resLike.status === 401) {
+        navigate("/login");
+      } else if (
+        resLike &&
+        resLike.data &&
+        resLike.data.message === "Can't React,You Already reacted."
+      ) {
+        notify("Already like it", "warn");
+      }
     }
   }, [loadingLike]);
 

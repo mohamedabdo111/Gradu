@@ -119,7 +119,7 @@ const UseInformationPage = () => {
                         type="text"
                         placeholder="College"
                         className=" p-2  w-[100%] md:w-[80%]  rounded-lg border-2 border-gray-300"
-                        value={college === null ? "unavailable" : college}
+                        value={college === null ? "College" : college}
                       ></input>
                     </div>
                     <div className=" w-full my-7">
@@ -127,7 +127,7 @@ const UseInformationPage = () => {
                         type="text"
                         placeholder="University"
                         className=" p-2  w-[100%] md:w-[80%]  rounded-lg border-2 border-gray-300"
-                        value={univerctiy === null ? "unavailable" : univerctiy}
+                        value={univerctiy === null ? "Univercity" : univerctiy}
                       ></input>
                     </div>
                   </>

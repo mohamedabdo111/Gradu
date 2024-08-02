@@ -5,7 +5,7 @@ import {
   GetNumbersUsersAction,
 } from "../redux/actions/adminAction";
 
-const AdminAllUsersHook = () => {
+const AdminAllUsersHook = (role) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const [loadingg, setLoadingg] = useState(true);
@@ -14,7 +14,7 @@ const AdminAllUsersHook = () => {
 
   const get = async (page, size) => {
     setLoading(true);
-    await dispatch(GetAllUsersAction(page, size));
+    await dispatch(GetAllUsersAction(page, size, role));
     setLoading(false);
   };
 
@@ -22,7 +22,7 @@ const AdminAllUsersHook = () => {
     get(1, 5);
     const numbers = async () => {
       setLoadingg(true);
-      await dispatch(GetNumbersUsersAction());
+      await dispatch(GetNumbersUsersAction(role));
       setLoadingg(false);
     };
     numbers();

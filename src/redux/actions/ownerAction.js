@@ -17,6 +17,7 @@ import {
   Remove_Apartment,
   Update_Password,
   Update_profile,
+  UsersNum,
 } from "../types/types";
 
 export const GetNotificationAction = (id) => async (dispatch) => {
@@ -202,3 +203,20 @@ export const GetUsersRequestAction =
       });
     }
   };
+export const GetUsersNumberAction = (id) => async (dispatch) => {
+  try {
+    const res = await UseGetDataToken(
+      `Owner/GetUsersCountForOwner?OwnerId=${id}`
+    );
+
+    dispatch({
+      type: UsersNum,
+      data: res,
+    });
+  } catch (error) {
+    dispatch({
+      type: UsersNum,
+      data: error.response,
+    });
+  }
+};

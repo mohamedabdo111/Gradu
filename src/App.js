@@ -32,6 +32,7 @@ import UserUpdatePasswordPage from "./pages/user/userUpdatePassword";
 import { ScrollToTop } from "./components/ScrollToTop";
 import AdminViewUserInformation from "./components/admin/adminViewUserInformation";
 import AdminViewUserInformationPage from "./pages/admin/adminViewUserInformationPage";
+import AdminOwnersPage from "./pages/admin/adminOwnersPage";
 
 const App = () => {
   const [isUser, isAdmin, isOwner, userDate] = ProtectRouteHock();
@@ -115,6 +116,10 @@ const App = () => {
             <Route
               path="/admin/users"
               element={<AdminUsersPage></AdminUsersPage>}
+            ></Route>
+            <Route
+              path="/admin/owners"
+              element={<AdminOwnersPage></AdminOwnersPage>}
             ></Route>
             <Route
               path="/admin/update-profile"

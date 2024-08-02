@@ -10,6 +10,7 @@ import {
   Remove_Apartment,
   Update_Password,
   Update_profile,
+  UsersNum,
 } from "../types/types";
 
 const intial = {
@@ -24,6 +25,7 @@ const intial = {
   getApartmentEdit: [],
   userRequests: [],
   handleRequest: [],
+  numberUsers: [],
   loading: true,
 };
 
@@ -61,6 +63,9 @@ export const AdminReducer = (state = intial, action) => {
     }
     case Handle_Request: {
       return { ...state, handleRequest: action.data, loading: false };
+    }
+    case UsersNum: {
+      return { ...state, numberUsers: action.data, loading: false };
     }
     default: {
       return state;
