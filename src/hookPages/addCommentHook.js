@@ -47,6 +47,8 @@ const AddCommentHook = (id) => {
           await dispatch(GetApartmentDetailsAction(id));
         };
         get();
+
+        setComment("");
       } else if (res && res.status === 401) {
         navigate("/login");
       }
