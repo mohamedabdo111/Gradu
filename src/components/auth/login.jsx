@@ -1,10 +1,12 @@
 import React from "react";
 import img from "../../images/VECTOR.jpg";
+import google from "../../images/google.png";
 import logo from "../../images/Group11.png";
 import { Link } from "react-router-dom";
 import LoginHook from "../../hookPages/loginHook";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { GoogleLogin } from "@react-oauth/google";
 
 const Login = () => {
   const [email, password, EmailChange, PasswordChange, submit] = LoginHook();
@@ -39,8 +41,20 @@ const Login = () => {
             Forget Password
           </Link>
         </div>
+        <div className=" mx-auto mt-6 cursor-pointer select-none flex justify-center">
+          <span>
+            <GoogleLogin
+              onSuccess={(credentialResponse) => {
+                console.log(credentialResponse);
+              }}
+              onError={() => {
+                console.log("Login Failed");
+              }}
+            />
+          </span>
+        </div>
         <button
-          className="bg-links w-[80%] p-2 rounded-md text-white my-7"
+          className="bg-links w-[80%] p-2 rounded-md text-white my-7 select-none"
           onClick={submit}
         >
           Login
@@ -48,7 +62,7 @@ const Login = () => {
         <p className=" font-medium my-7">
           Don't have an account?{" "}
           <Link to="/register" className="text-links">
-            Regester ...{" "}
+            Register ...{" "}
           </Link>
         </p>
       </div>

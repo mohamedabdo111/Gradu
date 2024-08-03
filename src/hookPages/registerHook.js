@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RegisterAction } from "../redux/actions/AuthAction";
 import { notify } from "../components/fixed/notify";
+import { useNavigate } from "react-router-dom";
 
 const RegisterHook = () => {
+  const navigate = useNavigate();
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [Phone, setPhone] = useState("");
@@ -78,7 +80,6 @@ const RegisterHook = () => {
     formdata.append("UserType", userType);
     formdata.append("Password", password);
     formdata.append("ConfirmPassword", confirmPass);
-
     await dispatch(RegisterAction(formdata));
     setLoading(false);
   };
@@ -101,7 +102,7 @@ const RegisterHook = () => {
         } else if (res && res.data && res.data.statusCode === 200) {
           notify("Confirm this email before login", "warn");
           setTimeout(() => {
-            window.location.href = "/login";
+            navigate("/login");
           }, 3000);
 
           return;
