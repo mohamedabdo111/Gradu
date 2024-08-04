@@ -19,7 +19,6 @@ import AdminUsersPage from "./pages/admin/adminUsersPage";
 import AdminEditProf from "./pages/admin/adminEditProfPage";
 import AdminPenddingPage from "./pages/admin/adminPenddingpage";
 import UserAllFlatsPage from "./pages/user/userAllFlatsPage";
-import UserApartmentDetails from "./pages/user/userApartmentDetailsPage";
 import UserApartmentDetailsPage from "./pages/user/userApartmentDetailsPage";
 import ForgetPassword from "./components/auth/forgetPassword";
 import EmailForget from "./components/auth/emailuser";
@@ -30,7 +29,6 @@ import ProtectedRoute from "./components/protectRoutes/protectRoutes";
 import UseInformationPage from "./pages/user/useInformationPage";
 import UserUpdatePasswordPage from "./pages/user/userUpdatePassword";
 import { ScrollToTop } from "./components/ScrollToTop";
-import AdminViewUserInformation from "./components/admin/adminViewUserInformation";
 import AdminViewUserInformationPage from "./pages/admin/adminViewUserInformationPage";
 import AdminOwnersPage from "./pages/admin/adminOwnersPage";
 
@@ -38,8 +36,8 @@ const App = () => {
   const [isUser, isAdmin, isOwner, userDate] = ProtectRouteHock();
   return (
     <>
+      <ScrollToTop />
       <Header></Header>
-
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LangingPage></LangingPage>}></Route>
