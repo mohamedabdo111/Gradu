@@ -51,6 +51,8 @@ const AddLikeHook = (id) => {
     }
   }, [loadingLike]);
 
+  console.log(resLike);
+
   return [loadingLike, SubmitLike];
 };
 

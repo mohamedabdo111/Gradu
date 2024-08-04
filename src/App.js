@@ -36,8 +36,8 @@ const App = () => {
   const [isUser, isAdmin, isOwner, userDate] = ProtectRouteHock();
   return (
     <>
-      <ScrollToTop />
       <Header></Header>
+
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LangingPage></LangingPage>}></Route>

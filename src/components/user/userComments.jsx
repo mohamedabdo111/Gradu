@@ -3,6 +3,8 @@ import img from "../../images/user login.png";
 import AddCommentHook from "../../hookPages/addCommentHook";
 import { useParams } from "react-router-dom";
 // import PaginationCode from "../fixed/Pagination";
+import Zoom from "react-reveal/Zoom";
+
 const UserComments = ({ comment, onpress }) => {
   const { id } = useParams();
   const [comments, , onChangeComment, Submit] = AddCommentHook(id);
@@ -13,25 +15,27 @@ const UserComments = ({ comment, onpress }) => {
       {comment && comment.date
         ? comment.date.map((item, index) => {
             return (
-              <div
-                className="border border-gray-400 shadow-lg p-3 rounded-lg my-4"
-                key={index}
-              >
-                <div className=" flex gap-3 items-center ">
-                  <img
-                    src={
-                      item.currentUserImage === null
-                        ? img
-                        : item.currentUserImage
-                    }
-                    alt="imguser"
-                    className=" w-[50px] h-[50px] rounded-full"
-                  ></img>
-                  <h1 className=" font-semibold">{item.userCommentName}</h1>
-                </div>
+              <Zoom>
+                <div
+                  className="border border-gray-400 shadow-lg p-3 rounded-lg my-4"
+                  key={index}
+                >
+                  <div className=" flex gap-3 items-center ">
+                    <img
+                      src={
+                        item.currentUserImage === null
+                          ? img
+                          : item.currentUserImage
+                      }
+                      alt="imguser"
+                      className=" w-[50px] h-[50px] rounded-full"
+                    ></img>
+                    <h1 className=" font-semibold">{item.userCommentName}</h1>
+                  </div>
 
-                <div className=" text-end my-4 fam">{item.commentValue}</div>
-              </div>
+                  <div className=" text-end my-4 fam">{item.commentValue}</div>
+                </div>
+              </Zoom>
             );
           })
         : null}

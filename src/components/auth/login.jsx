@@ -7,12 +7,22 @@ import LoginHook from "../../hookPages/loginHook";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { GoogleLogin } from "@react-oauth/google";
+import { useDispatch, useSelector } from "react-redux";
+import { GoogleLoginAction } from "../../redux/actions/AuthAction";
 
 const Login = () => {
   const [email, password, EmailChange, PasswordChange, submit] = LoginHook();
+  const dispatch = useDispatch();
+  const res = useSelector((item) => item.Auth.login);
+  if (res && res.data && res.data.statusCode === 200) {
+    localStorage.setItem("UserInf", JSON.stringify(res.data.data));
+    localStorage.setItem("token", res.data.data.token);
+    window.location.href = "/";
+  }
+
   return (
     <div className=" grid grid-cols-12 gap-4 bg-login">
-      <div className=" col-span-12 sm:col-span-8 md:col-span-7 lg:col-span-5  border mx-2 md:mx-8 my-8 p-2 text-center bg-white rounded-md h-[640px]  ">
+      <div className=" col-span-12 sm:col-span-12 md:col-span-7 lg:col-span-5 w-[90%]  border  m-auto  md:mx-8 my-8 p-2 text-center bg-white rounded-md h-[640px]  ">
         <h1 className=" head-dash text-xl my-10 ">LOGIN</h1>
         <img src={logo} alt="logo" className=" m-auto my-10"></img>
 
@@ -45,7 +55,8 @@ const Login = () => {
           <span>
             <GoogleLogin
               onSuccess={(credentialResponse) => {
-                console.log(credentialResponse);
+                console.log(credentialResponse.credential);
+                dispatch(GoogleLoginAction(credentialResponse.credential));
               }}
               onError={() => {
                 console.log("Login Failed");

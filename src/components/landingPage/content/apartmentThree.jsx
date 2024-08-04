@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import CardsLanding from "./cardslanding";
 import { Link } from "react-router-dom";
-import one, { useDispatch, useSelector } from "react-redux";
-import { GetAllApartmentAction } from "../../../redux/actions/getAllApartmentAction";
 import GetAllApartmentHook from "../../../hookPages/getAllApartmentHook";
 import Loading from "../../fixed/Loading";
 import NotFound from "../../fixed/notFound";
+import Zoom from "react-reveal/Zoom";
+
 const ApartmentThree = () => {
   const [loading, data] = GetAllApartmentHook();
   let threeApart = "";
@@ -18,10 +18,13 @@ const ApartmentThree = () => {
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 mt-9 mb-20 p-5">
         <h1 className="text-primary text-4xl font-bold">Best recommendation</h1>
         <div className=" flex justify-between my-5 flex-wrap ">
-          <p className="w-[75%] sm:para-about mb-3">
-            Discover our exclusive selection of the finest one of a kind luxury
-            properties architectural masterpieces.
-          </p>
+          <Zoom>
+            <p className="w-[75%] sm:para-about mb-3">
+              Discover our exclusive selection of the finest one of a kind
+              luxury properties architectural masterpieces.
+            </p>
+          </Zoom>
+
           <Link
             className=" flex gap-3 justify-center w-44 sm:w-52 cursor-pointer bg-white px-8 py-3 items-center h-fit text-sm sm:text-normal hover:text-sec "
             to={"/user/view-apartments"}

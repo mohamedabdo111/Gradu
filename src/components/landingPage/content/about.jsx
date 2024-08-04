@@ -1,6 +1,7 @@
 import React from "react";
 import img from "../../../images/Rectangle 9.png";
 import { Link } from "react-router-dom";
+import Zoom from "react-reveal/Zoom";
 const About = () => {
   return (
     <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 grid grid-cols-12 my-10 gap-5 bg-gray-100 p-4">
@@ -9,13 +10,15 @@ const About = () => {
       </div>
       <div className=" col-span-12 sm:col-span-6">
         <h1 className="banner-text text-5xl font-thin">About</h1>
-        <p className=" my-4 leading-7 para-about">
-          About Better Call home is a real estate agency that helps you find
-          homes easily with your specific characteristics and requirements, also
-          it helps you sell your home it helps you find the proper buyer, it
-          helps you buy or rent your dream home with the outstanding help of our
-          team as it’s the most professional in the business.
-        </p>
+        <Zoom>
+          <p className=" my-4 leading-7 para-about">
+            About Better Call home is a real estate agency that helps you find
+            homes easily with your specific characteristics and requirements,
+            also it helps you sell your home it helps you find the proper buyer,
+            it helps you buy or rent your dream home with the outstanding help
+            of our team as it’s the most professional in the business.
+          </p>
+        </Zoom>
 
         <Link
           className=" flex gap-3 w-52 cursor-pointer bg-white px-8 py-5 hover:text-sec justify-center"

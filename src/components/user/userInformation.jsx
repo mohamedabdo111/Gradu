@@ -6,6 +6,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AddLikeHook from "../../hookPages/addLikeHook";
 import EnrollHook from "../../hookPages/enrollHook";
+import Zoom from "react-reveal/Zoom";
+
 const UserInformation = ({ userInfo }) => {
   const { id } = useParams();
   const [comments, loading, onChangeComment, Submit] = AddCommentHook(id);
@@ -13,7 +15,7 @@ const UserInformation = ({ userInfo }) => {
   const [, OnEnroll] = EnrollHook(id);
 
   return (
-    <>
+    <Zoom>
       <div className=" flex flex-row-reverse justify-between">
         <div className="text-end">
           <h1 className=" fam text-xl font-bold">{userInfo.apartmentName}</h1>
@@ -71,7 +73,7 @@ const UserInformation = ({ userInfo }) => {
         </div>
         <ToastContainer></ToastContainer>
       </div>
-    </>
+    </Zoom>
   );
 };
 

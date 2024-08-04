@@ -21,6 +21,22 @@ export const AuthAction = (formdata) => async (dispatch) => {
     });
   }
 };
+export const GoogleLoginAction = (id) => async (dispatch) => {
+  try {
+    const res = await UsePostDateWithImage(
+      `Authentication/GoogleLogin?Token=${id}`
+    );
+    dispatch({
+      type: Login_type,
+      data: res,
+    });
+  } catch (error) {
+    dispatch({
+      type: Login_type,
+      data: error.response,
+    });
+  }
+};
 
 export const RegisterAction = (formdata) => async (dispatch) => {
   try {

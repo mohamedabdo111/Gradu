@@ -1,4 +1,5 @@
 import React from "react";
+import Zoom from "react-reveal/Zoom";
 
 const Main = () => {
   return (
@@ -8,22 +9,27 @@ const Main = () => {
       </h1>
 
       <section className=" grid grid-cols-12 my-9">
-        <div className=" col-span-12 sm:col-span-6 flex gap-6 items-center">
-          <h1 className=" text-primary text-9xl font-extrabold">1</h1>
-          <p className="para-about ">
-            Sell and rent smarter with Better Call Home, Sell and rent your
-            property smarter with more data and insight with our free home value
-            report.
-          </p>
-        </div>
-        <div className="col-span-12 sm:col-span-6 flex gap-6 items-center">
-          <h1 className=" text-primary text-9xl font-extrabold">2</h1>
-          <p className="para-about ">
-            Comparable Sales, See what other estates are being sold/rented for
-            in and around your neighborhood as it helps you find the perfect
-            price.
-          </p>
-        </div>
+        <Zoom>
+          <div className=" col-span-12 sm:col-span-6 flex gap-6 items-center">
+            <h1 className=" text-primary text-9xl font-extrabold">1</h1>
+            <p className="para-about ">
+              Sell and rent smarter with Better Call Home, Sell and rent your
+              property smarter with more data and insight with our free home
+              value report.
+            </p>
+          </div>
+        </Zoom>
+
+        <Zoom>
+          <div className="col-span-12 sm:col-span-6 flex gap-6 items-center">
+            <h1 className=" text-primary text-9xl font-extrabold">2</h1>
+            <p className="para-about ">
+              Comparable Sales, See what other estates are being sold/rented for
+              in and around your neighborhood as it helps you find the perfect
+              price.
+            </p>
+          </div>
+        </Zoom>
       </section>
     </div>
   );
